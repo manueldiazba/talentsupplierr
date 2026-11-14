@@ -40,9 +40,7 @@
 @media (max-width:860px){.intro p{margin:0}.intro{padding-block:96px}}
 
 /* ---------- off-market band ---------- */
-.band{position:relative;overflow:hidden;background:var(--ink)}
-.band .pic{height:clamp(420px,86vh,980px);overflow:hidden}
-.band .pic video{display:block;width:100%;height:100%;object-fit:cover;transform:scale(var(--z,1.12));will-change:transform}
+.band{position:relative;background:var(--ink)}
 .band-cap{background:var(--ink);color:var(--on-dark);padding-block:28px 36px}
 .band-cap .grid{align-items:start}
 .band-cap h2{grid-column:1/6;font-size:var(--t-h2)}
@@ -186,13 +184,13 @@
   <p class="rv">We do not send piles of <span class="thumb" aria-hidden="true"><img src="assets/img/herringbone.jpg" width="1800" height="1200" alt="" loading="lazy"></span>CVs. We map the market, approach the few who fit, and present one <span class="thumb" aria-hidden="true"><img src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy"></span>shortlist you can act on.</p>
 </section>
 
-<section class="band" data-bar="ink" aria-labelledby="offmarket">
-  <div class="pic"><video id="bandImg" autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video></div>
-  <div class="band-cap wrap">
+<section class="band" aria-labelledby="offmarket">
+  <div class="open" data-bar="cream"><div class="pic"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video></div></div>
+  <div class="band-cap wrap" data-bar="ink">
     <div class="grid">
       <h2 id="offmarket" class="rv">Off-market.</h2>
       <p class="rv" style="--i:1">They are already behind the glass, running someone else’s floor. They take calls, not adverts.</p>
-      <p class="mono rv" style="--i:2">Arcade, rendered for TalentSupplier. Every image on this page is made for it, not stock.</p>
+      <p class="mono rv" style="--i:2">Arcade — rendered for TalentSupplier. Every image on this site is made for it, not stock.</p>
     </div>
   </div>
 </section>
@@ -204,8 +202,8 @@
   </div>
   <div class="grid body">
     <figure class="rv" style="--i:2">
-      <div class="ph"><img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind a shop window" loading="lazy"></div>
-      <figcaption class="mono">Behind the window. Rendered for TalentSupplier.</figcaption>
+      <div class="ph veil"><img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind a shop window" loading="lazy"></div>
+      <figcaption class="mono">Curtain — rendered for TalentSupplier</figcaption>
     </figure>
     <div class="table" id="roleTable">
       <div class="group rv">
@@ -282,7 +280,7 @@
       <div><dt>Handled</dt><dd>In confidence</dd></div>
     </dl>
     <div class="text rv" style="--i:1">
-      <p><span class="cap" aria-hidden="true"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"></span>A search boutique for retail, fashion and luxury. Every mandate tailored, every conversation discreet.</p>
+      <p><span class="cap veil" aria-hidden="true"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"></span>A search boutique for retail, fashion and luxury. Every mandate tailored, every conversation discreet.</p>
       <p>We work on a success-based basis, and we choose quality, clarity and long relationships over volume.</p>
     </div>
     <div class="principles">

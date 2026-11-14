@@ -5,7 +5,7 @@
   function $$(s,c){return [].slice.call((c||document).querySelectorAll(s));}
 
   /* entrances, once per element */
-  var rv=$$('.rv');
+  var rv=$$('.rv, .veil');
   if('IntersectionObserver' in window && !reduce){
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1,rootMargin:'0px 0px -6% 0px'});
     rv.forEach(function(el){io.observe(el);});
@@ -14,12 +14,19 @@
   /* the bar takes the colour of the chapter beneath it; scroll-linked picture; sticky picture swap */
   var bar=$('#bar');
   var C={cream:['#F7F5F2','#1F1F1F'],step:['#ECE8E1','#1F1F1F'],ink:['#1F1F1F','#F7F5F2'],green:['#0F5C4D','#F7F5F2']};
-  var ch=$$('[data-bar]'), band=$('#bandImg'), swaps=$$('[data-swap]'), stage=$$('.stage > *');
+  var opens=$$('.open'), ch=$$('[data-bar]'), band=$('#bandImg'), swaps=$$('[data-swap]'), stage=$$('.stage > *');
   function frame(){
     var y=(bar.offsetHeight||64)/2, cur=ch[0];
     for(var i=0;i<ch.length;i++){var r=ch[i].getBoundingClientRect(); if(r.top<=y&&r.bottom>y){cur=ch[i];break;}}
     if(cur){var key=cur.getAttribute('data-bar'), c=C[key]; bar.style.setProperty('--bar-bg',c[0]); bar.style.setProperty('--bar-ink',c[1]); bar.setAttribute('data-tone',key);}
-    if(band&&!reduce){var b=band.parentNode.getBoundingClientRect(), p=Math.min(1,Math.max(0,1-(b.top+b.height)/(innerHeight+b.height))); band.style.setProperty('--z',(1.12-0.12*p).toFixed(4));}
+    if(!reduce) opens.forEach(function(o){
+      var r=o.getBoundingClientRect(), span=Math.max(1,r.height-innerHeight), p=Math.min(1,Math.max(0,-r.top/span));
+      var e=1-Math.pow(1-p,3), W=innerWidth, H=innerHeight, w0=Math.min(W*(W<860?.62:.26),440), h0=w0*.32;
+      var cs=(W-w0)/2*(1-e), ct=(H-h0)/2*(1-e), pic=o.firstElementChild;
+      pic.style.setProperty('--cs',cs.toFixed(1)+'px'); pic.style.setProperty('--ct',ct.toFixed(1)+'px');
+      var m=pic.firstElementChild; if(m) m.style.setProperty('--z',(1.18-0.18*e).toFixed(4));
+    });
+    if(band&&!opens.length&&!reduce){var b=band.parentNode.getBoundingClientRect(), p=Math.min(1,Math.max(0,1-(b.top+b.height)/(innerHeight+b.height))); band.style.setProperty('--z',(1.12-0.12*p).toFixed(4));}
     if(swaps.length&&stage.length){
       var mid=innerHeight*.5, on=0;
       swaps.forEach(function(s,i){if(s.getBoundingClientRect().top<mid) on=i;});
