@@ -2,573 +2,345 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>TalentSupplier | Executive Search Boutique</title>
-<meta name="description" content="TalentSupplier is an executive search boutique helping ambitious retail, fashion and luxury companies identify, approach and secure high-impact leadership talent.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta name="description" content="TalentSupplier is an executive search boutique for retail, fashion and luxury. We approach the leaders who are not looking, confidentially and partner-led.">
+<meta property="og:title" content="TalentSupplier | Executive Search Boutique">
+<meta property="og:description" content="Executive search for retail, fashion and luxury leadership. Off-market, confidential, partner-led.">
+<meta property="og:image" content="assets/img/arcade.jpg">
+<link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/img/arcade.jpg" as="image">
+<link rel="stylesheet" href="assets/site.css">
+<script>document.documentElement.classList.add('js')</script>
 <style>
-:root{
-    --ivory:#F7F5F2;
-    --paper:#FCFBF9;
-    --charcoal:#1F1F1F;
-    --olive:#0F5C4D;
-    --olive-dark:#0B4A3D;
-    --grey:#8B8B8B;
-    --hairline: rgba(31,31,31,0.12);
-    --max: 1180px;
-    --ease: cubic-bezier(.16,1,.3,1);
-    --ease-soft: cubic-bezier(.22,1,.36,1);
-  }
+/* ---------- hero: the sentence is the layout ---------- */
+.hero{min-height:calc(100svh - 72px);display:flex;flex-direction:column;justify-content:space-between;padding-block:clamp(48px,18vh,220px) 32px}
+.hero h1{font-size:var(--t-display);line-height:.96;letter-spacing:-.045em}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero-foot{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px);align-items:end;margin-top:48px}
+.hero-foot .meta{grid-column:1/5;color:var(--soft)}
+.hero-foot p.lead{grid-column:6/10;font-size:var(--t-body);max-width:44ch}
+.hero-foot .act{grid-column:10/13;justify-self:end}
+.window-m{display:none}
+@media (max-width:860px){
+  .hero{min-height:auto;padding-block:40px 40px}
+  .hero h1{font-size:clamp(27px,7.2vw,60px);line-height:1.02}
+  .hero h1 .window{display:none}
+  .window-m{display:block;margin:20px 0;aspect-ratio:3/2;background:var(--green);overflow:hidden}
+  .window-m img{width:100%;height:100%;object-fit:cover}
+  .hero-foot{display:block;margin-top:28px}
+  .hero-foot p.lead{margin-bottom:24px}
+  .hero-foot .act{width:100%;min-height:56px}
+  .hero-foot .meta{display:block;margin-top:20px}
+}
 
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--ivory);
-    color:var(--charcoal);
-    font-family:'Manrope', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  h1,h2,h3,.serif{
-    font-family:'Manrope', sans-serif;
-    font-weight:500;
-    letter-spacing:-0.03em;
-    margin:0;
-  }
-  .mono{
-    font-family:'IBM Plex Mono', monospace;
-    letter-spacing:0.14em;
-    text-transform:uppercase;
-    font-size:11.5px;
-    font-weight:500;
-  }
-  a{color:inherit; text-decoration:none;}
-  img{max-width:100%; display:block;}
-  .wrap{max-width:var(--max); margin:0 auto; padding:0 40px;}
-  section{position:relative;}
+/* ---------- intro statement with inline frames ---------- */
+.intro{padding-block:var(--gap)}
+.intro p{font-size:var(--t-statement);font-weight:500;line-height:1.22;letter-spacing:-.02em;max-width:31em;margin-left:auto;margin-right:clamp(0px,8vw,160px)}
+@media (max-width:860px){.intro p{margin:0}.intro{padding-block:96px}}
 
-  ::selection{ background:rgba(15,92,77,0.18); color:var(--charcoal); }
+/* ---------- off-market band ---------- */
+.band{position:relative;overflow:hidden;background:var(--ink)}
+.band .pic{height:clamp(420px,86vh,980px);overflow:hidden}
+.band .pic video{display:block;width:100%;height:100%;object-fit:cover;transform:scale(var(--z,1.12));will-change:transform}
+.band-cap{background:var(--ink);color:var(--on-dark);padding-block:28px 36px}
+.band-cap .grid{align-items:start}
+.band-cap h2{grid-column:1/6;font-size:var(--t-h2)}
+.band-cap p{grid-column:6/13;font-size:var(--t-statement);font-weight:500;line-height:1.22;letter-spacing:-.02em}
+.band-cap p.mono{grid-column:6/13;color:var(--on-dark-soft);margin-top:24px;font-size:13px;font-weight:400;letter-spacing:.01em;line-height:1.5}
+@media (max-width:860px){.band-cap h2,.band-cap p,.band-cap .mono{grid-column:1/-1}.band-cap p{margin-top:20px}}
 
-  /* focus visibility */
-  a:focus-visible, button:focus-visible{
-    outline:2px solid var(--olive);
-    outline-offset:3px;
-  }
+/* ---------- who do you need (the live thing) ---------- */
+.roles{background:var(--step);padding-block:var(--gap)}
+.roles h2{font-size:var(--t-h2);text-indent:3vw}
+.roles .lede{grid-column:7/12;margin-top:28px;font-size:var(--t-body);max-width:46ch}
+.roles .body{margin-top:clamp(56px,7vw,96px);align-items:end}
+.roles figure{grid-column:1/5;margin:0;align-self:end}
+.roles figure .ph{aspect-ratio:4/5;overflow:hidden;background:var(--green)}
+.roles figure img{width:100%;height:100%;object-fit:cover}
+.roles figcaption{margin-top:12px;color:var(--soft)}
+.table{grid-column:6/13}
+.group+.group{margin-top:44px}
+.group h3{font-size:15px;font-weight:600;letter-spacing:-.005em;line-height:1.3;color:var(--green);margin-bottom:10px}
+.role{display:grid;grid-template-columns:1.25fr 1fr .8fr 24px;gap:16px;align-items:baseline;width:100%;padding:10px 0;background:none;border:0;color:var(--ink);font:500 18px/1.35 var(--sans);text-align:left;cursor:pointer;text-decoration:none;transition:color .25s var(--ease),transform .3s var(--ease)}
+.role .k{color:var(--soft);font-size:15px;font-weight:400}
+.role .v{color:var(--soft);font-size:15px;font-weight:400;text-align:right}
+.role .ar{transition:transform .3s var(--ease);text-align:right}
+.role:hover{color:var(--green)}
+.role:hover .ar{transform:translateX(4px)}
+.role[aria-pressed="true"]{color:var(--green)}
+.role[aria-pressed="true"] .ar{transform:rotate(90deg)}
+.brief{background:var(--green);color:var(--on-dark);padding:0 24px;max-height:0;overflow:hidden;transition:max-height .5s var(--ease),padding .4s var(--ease)}
+.brief.open{max-height:420px;padding:24px}
+.brief p{max-width:52ch}
+.brief strong{font-weight:600}
+.brief .row{display:flex;flex-wrap:wrap;gap:16px 24px;align-items:center;margin-top:20px}
+.brief .btn{background:var(--bg);color:var(--green)}
+.brief .btn:hover{background:#fff}
+.brief .mono{color:var(--on-dark-soft)}
+.roles .else{margin-top:40px;color:var(--soft);font-size:15px}
+@media (max-width:860px){
+  .roles h2{text-indent:0}
+  .roles .lede,.table,.roles figure{grid-column:1/-1}
+  .roles figure{width:62%;margin:48px 0 0 auto;order:2}
+  .role{grid-template-columns:1fr auto;row-gap:2px}
+  .role .k{grid-column:1/2;grid-row:2;font-size:15px}
+  .role .v{grid-column:2/3;grid-row:1}
+  .role .ar{display:none}
+}
 
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
-  }
+/* ---------- proof: names as one sentence ---------- */
+.proof{padding-block:var(--gap)}
+.proof p{font-size:var(--t-statement);font-weight:500;line-height:1.22;letter-spacing:-.02em;max-width:24em}
+.proof p.mono{margin-top:24px;color:var(--soft);font-size:13px;font-weight:400;letter-spacing:.01em}
 
-  /* ---------- reveal ---------- */
-  .reveal{ opacity:0; transform:translateY(16px); transition:opacity 500ms var(--ease-soft), transform 500ms var(--ease-soft); transition-delay:var(--d, 0s); }
-  .reveal.in{ opacity:1; transform:translateY(0); }
+/* ---------- how a search runs: one verb at a time ---------- */
+.verbs{position:relative}
+.panel{position:relative;height:100svh;min-height:560px;overflow:hidden;color:var(--on-dark)}
+.panel>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.panel .vw{position:absolute;inset:0;pointer-events:none}
+.panel .verb{position:sticky;top:50%;transform:translateY(-50%);text-align:center;font-size:clamp(84px,17vw,300px);font-weight:600;letter-spacing:-.05em;line-height:1;margin:0}
+.panel.light{color:var(--ink)}
+.panel .say{position:absolute;left:0;bottom:0;max-width:min(560px,92vw);padding:28px var(--m) 32px;background:rgba(31,31,31,.72);color:var(--on-dark);font-size:var(--t-body)}
+.panel .say strong{display:block;font-weight:600;margin-bottom:4px}
+.verbs-title{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+@media (max-width:860px){.panel .verb{font-size:18vw}.panel .say{max-width:none;right:0;font-size:16px;padding:20px var(--m) 24px}}
 
-  /* ---------- header ---------- */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:100;
-    padding:26px 0;
-    transition:background .6s var(--ease), padding .5s var(--ease), border-color .6s var(--ease);
-    border-bottom:1px solid transparent;
-  }
-  header.scrolled{
-    background:rgba(247,245,242,0.92);
-    backdrop-filter:blur(10px);
-    padding:16px 0;
-    border-bottom:1px solid var(--hairline);
-  }
-  header .wrap{ display:flex; align-items:center; justify-content:space-between; }
-  .wordmark{ font-family:'Manrope', sans-serif; font-size:20px; letter-spacing:-0.03em; font-weight:800; }
-  .wordmark .accent{ color:inherit; }
-  nav{ display:flex; align-items:center; gap:38px; }
-  nav .links{ display:flex; gap:34px; }
-  nav .links a{ font-size:13.5px; font-weight:500; position:relative; padding-bottom:3px; }
-  nav .links a::after{
-    content:''; position:absolute; left:0; bottom:0; width:0; height:1px; background:var(--olive);
-    transition:width .5s var(--ease);
-  }
-  nav .links a:hover::after{ width:100%; }
-  .btn{
-    display:inline-block; padding:11px 22px; font-size:13px; font-weight:500;
-    border:1px solid var(--charcoal); border-radius:2px; white-space:nowrap;
-    transition:background 400ms var(--ease-soft), color 400ms var(--ease-soft), border-color 400ms var(--ease-soft), transform 400ms var(--ease-soft);
-  }
-  .btn-primary{ background:transparent; color:var(--charcoal); border-color:var(--olive); }
-  .btn-primary:hover{ background:var(--olive); border-color:var(--olive); color:var(--paper); transform:translateY(-1px); }
-  .btn-ghost{ border-color:var(--charcoal); }
-  .btn-ghost:hover{ background:var(--charcoal); color:var(--paper); transform:translateY(-1px); }
-  @media (prefers-reduced-motion: reduce){ .btn:hover{ transform:none; } }
-  .menu-toggle{ display:none; background:none; border:none; cursor:pointer; }
-  .menu-toggle span{ display:block; width:22px; height:1px; background:var(--charcoal); margin:5px 0; }
-  .mobile-nav{ display:none; }
+/* ---------- working model: picture as drop cap ---------- */
+.model{padding-block:var(--gap)}
+.model .facts{grid-column:1/3;display:flex;flex-direction:column;gap:18px;padding-top:6px}
+.model .facts dt{color:var(--soft)}
+.model .facts dd{margin:0;font-family:var(--sans);font-size:15px;font-weight:600;letter-spacing:-.005em}
+.model .text{grid-column:3/12}
+.model .text p{font-size:var(--t-statement);line-height:1.22;letter-spacing:-.02em;font-weight:500}
+.model .text p+p{margin-top:1.2em;color:var(--soft)}
+.model .cap{float:left;width:3.66em;height:3.66em;margin:.22em .5em 0 0;overflow:hidden;background:var(--green)}
+.model .cap img{width:100%;height:100%;object-fit:cover}
+.model .principles{grid-column:3/13;margin-top:clamp(56px,6vw,96px);display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
+.model .principles div{padding:0}
+.model .principles strong{display:block;font-weight:600;margin-bottom:6px}
+.model .principles p{font-size:18px}
+@media (max-width:860px){
+  .model .facts{grid-column:1/-1;flex-direction:row;flex-wrap:wrap;gap:16px 28px;order:2;margin-top:40px}
+  .model .text,.model .principles{grid-column:1/-1}
+  .model .principles{grid-template-columns:1fr 1fr;gap:14px}
+}
+@media (max-width:520px){.model .principles{grid-template-columns:1fr}}
 
-  /* ---------- hero ---------- */
-  .hero{
-    padding:190px 0 110px;
-    overflow:hidden;
-  }
-  .eyebrow{ color:var(--olive); margin-bottom:22px; display:block; opacity:0; animation:revealIn 550ms var(--ease-soft) 150ms forwards; }
-  .hero h1{
-    font-size:clamp(48px, 7.6vw, 96px); line-height:1.0; letter-spacing:-0.05em; font-weight:500; max-width:none; white-space:normal;
-  }
-  .hero h1 .line{ display:block; overflow:hidden; }
-  .hero h1 .line span{ display:block; transform:translateY(14px); opacity:0; animation:revealIn 550ms var(--ease-soft) forwards; }
-  .hero h1 .line:nth-child(1) span{ animation-delay:240ms; }
-  .hero h1 .line:nth-child(2) span{ animation-delay:330ms; }
-  .hero h1 .line:nth-child(3) span{ animation-delay:420ms; }
-  @keyframes revealIn{ from{ opacity:0; transform:translateY(14px);} to{ opacity:1; transform:translateY(0);} }
-  .hero .lede, .hero .cta-row{ opacity:0; animation:revealIn 550ms var(--ease-soft) forwards; }
-  .hero .lede{ animation-delay:510ms; }
-  .hero .cta-row{ animation-delay:590ms; }
-  .hero .funnel{ opacity:0; animation:revealIn 550ms var(--ease-soft) 680ms forwards; }
-  header .wrap{ opacity:0; animation:revealIn 500ms var(--ease-soft) forwards; }
-  @media (prefers-reduced-motion: reduce){
-    .hero h1 .line span{ animation:none; opacity:1; transform:none; }
-    .eyebrow, .hero .lede, .hero .cta-row, .hero .funnel, header .wrap{ animation:none; opacity:1; }
-  }
-  .hero p.lede{
-    margin-top:26px; max-width:46ch; color:#454545; font-size:17px;
-  }
-  .hero .cta-row{ margin-top:38px; display:flex; gap:16px; align-items:center; flex-wrap:wrap; }
-  .link-underline{ font-size:13.5px; font-weight:500; border-bottom:1px solid var(--charcoal); padding-bottom:3px; }
-
-  /* funnel signature */
-  .funnel{ padding-left:26px; border-left:1px solid var(--hairline); }
-  .funnel .stage{ display:block; margin-bottom:20px; transition:opacity .3s ease; }
-  .funnel .stage .label{ display:block; font-size:11px; }
-  .funnel .stage:nth-child(1){ opacity:0.38; font-size:14px; }
-  .funnel .stage:nth-child(2){ opacity:0.55; font-size:15px; }
-  .funnel .stage:nth-child(3){ opacity:0.8; font-size:16.5px; }
-  .funnel .stage:nth-child(4){ opacity:1; font-size:19px; font-family:'Manrope', sans-serif; font-weight:600; letter-spacing:-0.02em; color:var(--olive); padding-top:6px; border-top:1px solid var(--hairline); margin-top:4px; }
-
-  /* ---------- hairline section header ---------- */
-  .section{ padding:96px 0; border-top:1px solid var(--hairline); }
-  .section-head{ display:grid; grid-template-columns:0.9fr 1.6fr; gap:60px; margin-bottom:56px; }
-  .section-head h2{ font-size:clamp(28px, 3vw, 38px); line-height:1.15; }
-  .section-head .support{ color:#4d4d4d; font-size:15.5px; align-self:end; max-width:52ch; }
-  .arrow-eyebrow{ color:var(--grey); }
-
-  .line-reveal{ height:1px; background:var(--hairline); transform:scaleX(0); transform-origin:left; transition:transform 700ms var(--ease-soft); margin:36px 0; }
-  .line-reveal.in{ transform:scaleX(1); }
-  @media (prefers-reduced-motion: reduce){ .line-reveal{ transition:none; transform:scaleX(1); } }
-
-  .principle-row{ display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--hairline); border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
-  .principle{ background:var(--ivory); padding:56px 44px; position:relative; overflow:hidden; }  .principle .ghost-num{
-    position:absolute; top:-0.28em; right:16px; font-size:180px; font-weight:800; letter-spacing:-0.05em;
-    color:transparent; -webkit-text-stroke:1px rgba(31,31,31,0.10); z-index:0; line-height:1; pointer-events:none;
-  }
-  .principle h3{ font-size:21px; font-weight:700; position:relative; z-index:1; max-width:14ch; }
-  .principle p{ margin:14px 0 0; font-size:14.5px; color:#5a5a5a; position:relative; z-index:1; max-width:32ch; }
-  @media (max-width:900px){ .principle-row{ grid-template-columns:1fr; } .principle .ghost-num{ font-size:110px; } }
-
-  .page-hero{ padding:170px 0 90px; border-bottom:1px solid var(--hairline); }
-  .page-hero .eyebrow-row{ display:flex; justify-content:space-between; align-items:baseline; margin-bottom:30px; }
-  .page-hero h1{ font-size:clamp(48px,7.6vw,96px); line-height:1.0; letter-spacing:-0.05em; max-width:14ch; font-weight:500; }
-  .page-hero .lede{ margin-top:32px; max-width:52ch; font-size:18px; color:#454545; }
-
-  .dark-block{ background:var(--charcoal); color:var(--ivory); padding:120px 0; }
-  .dark-block h2{ color:var(--ivory); font-size:clamp(32px,4.4vw,54px); line-height:1.12; max-width:16ch; font-weight:500; }
-  .dark-block p{ color:#c9c9c4; font-size:16.5px; max-width:52ch; margin:22px 0 0; }
-  .dark-block .arrow-eyebrow{ color:var(--olive); }
-
-  /* who we help — tag list */
-  .tag-row{ display:flex; flex-wrap:wrap; gap:12px; }
-  .tag{
-    font-size:13.5px; padding:9px 16px; border:1px solid var(--hairline); border-radius:100px;
-    color:#3a3a3a; background:var(--paper);
-    transition:border-color .4s var(--ease), color .4s var(--ease);
-  }
-  .tag:hover{ border-color:var(--olive); color:var(--olive); }
-
-  /* what we recruit — editorial list */
-  .role-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:32px; }
-  .role-row{
-    position:relative; grid-template-columns:none; display:block;
-    padding:36px 32px; border:1px solid var(--hairline); background:var(--paper);
-    transition:transform 400ms var(--ease-soft), border-color 400ms var(--ease-soft), background 400ms var(--ease-soft);
-  }
-  .role-row:hover{ transform:translateY(-1px); border-color:var(--olive); background:#fdfcfa; }
-  @media (prefers-reduced-motion: reduce){ .role-row:hover{ transform:none; } }
-  .role-row .idx{ color:var(--grey); font-family:'IBM Plex Mono', monospace; font-size:13px; display:block; margin-bottom:16px; }
-  .role-row h3{ font-size:19px; font-weight:600; }
-  .role-row p{ margin:10px 0 0; color:#5a5a5a; font-size:14.5px; }
-  .role-row .cap{ display:block; margin-top:16px; padding-top:12px; border-top:1px solid var(--hairline); color:var(--grey); font-size:10.5px; }
-  .role-row .tags{ margin-top:16px; padding-top:14px; border-top:1px solid var(--hairline); font-family:'IBM Plex Mono', monospace; font-size:10.5px; letter-spacing:0.06em; color:var(--grey); text-transform:uppercase; }
-  .role-row .tags span:not(:last-child)::after{ content:' · '; }
-
-  /* pull quote */
-  .quote-section{ background:var(--charcoal); color:var(--ivory); padding:130px 0; }
-  .quote-section blockquote{
-    font-family:'Manrope', sans-serif; font-weight:300; letter-spacing:-0.02em; font-size:clamp(28px,4vw,46px); line-height:1.25; max-width:19ch; margin:0 0 40px;
-    font-weight:300;
-  }
-  .quote-section .support{ color:#b9b9b3; max-width:56ch; font-size:16px; }
-  .points{ margin-top:56px; display:grid; grid-template-columns:repeat(4,1fr); gap:30px; border-top:1px solid rgba(247,245,242,0.16); padding-top:36px; }
-  .points .pt .mono{ color:#f1f1ee; }
-  .points .pt p{ margin:10px 0 0; font-size:14.5px; color:#d6d6d0; }
-
-  /* approach */
-  .approach-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:20px; }
-  .approach-card{
-    position:relative; padding:28px 24px;
-    border:1px solid var(--hairline); background:var(--paper);
-    transition:transform 400ms var(--ease-soft), border-color 400ms var(--ease-soft), background 400ms var(--ease-soft);
-  }
-  .approach-card:hover{ transform:translateY(-1px); border-color:var(--olive); background:#fdfcfa; }
-  @media (prefers-reduced-motion: reduce){ .approach-card:hover{ transform:none; } }
-  .approach-card .num{ font-family:'IBM Plex Mono', monospace; font-size:13px; color:var(--olive); }
-  .approach-card h3{ font-size:19px; margin:16px 0 12px; font-weight:600; }
-  .approach-card p{ font-size:14px; color:#5a5a5a; margin:0; }
-
-  /* industries */
-  .industry-list{ display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
-  .industry-cell{
-    position:relative;
-    background:var(--paper); padding:34px 30px; min-height:170px; display:flex; flex-direction:column; justify-content:space-between;
-    border:1px solid var(--hairline);
-    transition:transform 400ms var(--ease-soft), border-color 400ms var(--ease-soft), background 400ms var(--ease-soft);
-  }
-  .industry-cell:hover{ transform:translateY(-1px); border-color:var(--olive); background:#fdfcfa; }
-  @media (prefers-reduced-motion: reduce){ .industry-cell:hover{ transform:none; } }
-  .industry-cell h3{ font-size:19px; font-weight:600; }
-  .industry-cell p{ font-size:13.5px; color:#5a5a5a; margin:14px 0 0; }
-
-  /* final cta */
-  .final-cta{ padding:140px 0; text-align:center; border-top:1px solid var(--hairline); }
-  .final-cta .serif{ font-size:clamp(28px,4vw,44px); max-width:18ch; margin:0 auto 40px; line-height:1.2; }
-
-  /* footer */
-  footer{ border-top:1px solid var(--hairline); padding:64px 0 40px; }
-  .foot-grid{ display:grid; grid-template-columns:1.2fr 0.8fr 0.8fr 1.2fr 0.8fr; gap:32px; padding-bottom:48px; }
-  .foot-grid .wordmark{ margin-bottom:14px; }
-  footer p.trust{ color:#5a5a5a; font-size:13.5px; max-width:34ch; }
-  footer h4.mono{ color:var(--grey); margin-bottom:16px; }
-  footer .flist{ display:flex; flex-direction:column; gap:10px; }
-  footer .flist a{ font-size:14px; color:#3a3a3a; }
-  footer .flist a:hover{ color:var(--olive); }
-  .foot-bottom{ display:flex; justify-content:space-between; padding-top:28px; border-top:1px solid var(--hairline); font-size:12.5px; color:var(--grey); flex-wrap:wrap; gap:12px; }
-
-  /* ---------- responsive ---------- */
-  @media (max-width: 900px){
-    .wrap{ padding:0 24px; }
-    nav .links{ display:none; }
-    .menu-toggle{ display:block; }
-    .mobile-nav{
-      display:block; position:fixed; inset:0; z-index:99; background:var(--ivory);
-      padding:110px 28px 40px; opacity:0; transform:translateY(-8px); pointer-events:none;
-      transition:opacity 220ms var(--ease-soft), transform 220ms var(--ease-soft);
-    }
-    .mobile-nav.open{ opacity:1; transform:translateY(0); pointer-events:auto; }
-    .mobile-nav a{ display:block; font-size:22px; font-weight:600; padding:16px 0; border-bottom:1px solid var(--hairline); }
-    @media (prefers-reduced-motion: reduce){ .mobile-nav{ transition:opacity 220ms linear; transform:none; } }
-    .hero{ padding:150px 0 70px; }
-    .hero-sub{ grid-template-columns:1fr !important; gap:36px !important; }
-    .funnel{ border-left:none; border-top:1px solid var(--hairline); padding-left:0; padding-top:26px; }
-    .section-head{ grid-template-columns:1fr; gap:20px; }
-    .role-list{ grid-template-columns:1fr; }
-    .industry-list{ grid-template-columns:1fr; }
-    .points{ grid-template-columns:1fr 1fr; }
-    .approach-grid{ grid-template-columns:1fr 1fr; }
-    .foot-grid{ grid-template-columns:1fr 1fr; }
-  }
-  @media (max-width:560px){
-    .points{ grid-template-columns:1fr; }
-    .approach-grid{ grid-template-columns:1fr; }
-    .foot-grid{ grid-template-columns:1fr; }
-  }
+/* ---------- sectors ---------- */
+.sectors{padding-bottom:var(--gap)}
+.sectors h2{grid-column:1/7;font-size:var(--t-h2)}
+.sectors .lede{grid-column:7/12;font-size:var(--t-body);max-width:46ch;align-self:end}
+.sectors table{grid-column:1/-1;margin-top:56px;border-collapse:collapse;width:100%;font-size:18px}
+.sectors th{text-align:left;font-weight:500;color:var(--soft);font-size:14px;padding:0 0 12px}
+.sectors td{padding:16px 0;border-top:1px solid rgba(31,31,31,.14);vertical-align:baseline}
+.sectors td:first-child{font-weight:600;width:38%}
+.sectors td.core{color:var(--green);font-weight:600}
+@media (max-width:860px){.sectors h2,.sectors .lede{grid-column:1/-1}.sectors .lede{margin-top:20px}.sectors th:last-child,.sectors td:last-child{display:none}}
 </style>
 </head>
 <body>
+<a class="skip" href="#main">Skip to content</a>
 
-<header id="siteHeader">
-  <div class="wrap">
-    <a href="index.html" class="wordmark">Talent<span class="accent">Supplier</span></a>
-    <nav>
-      <div class="links">
-        <a href="about.html">About</a>
-        <a href="services.html">Services</a>
-        <a href="industries.html">Industries</a>
-        <a href="contact.html">Contact</a>
-      </div>
-      <a href="contact.html" class="btn btn-primary">Discuss a search</a>
-      <button class="menu-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobileNav"><span></span><span></span><span></span></button>
+<header class="bar" id="bar">
+  <div class="in wrap">
+    <a class="wordmark" href="index.html" aria-label="TalentSupplier, home">TalentSupplier</a>
+    <nav class="nav" aria-label="Main">
+      <a href="about.html">About</a>
+      <a href="services.html">Services</a>
+      <a href="industries.html">Industries</a>
+      <a href="journal.html">Insights</a>
+      <a href="contact.html">Contact</a>
+      <a class="btn" href="contact.html">Discuss a search</a>
     </nav>
-  </div>
-  <div class="mobile-nav" id="mobileNav">
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="industries.html">Industries</a>
-    <a href="contact.html">Contact</a>
-    <a href="contact.html" class="btn btn-primary" style="margin-top:20px; display:inline-block;">Discuss a search</a>
+    <button class="menu-toggle" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu</button>
   </div>
 </header>
+<div class="sheet" id="sheet">
+  <ul>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="industries.html">Industries</a></li>
+    <li><a href="journal.html">Insights</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="btn" href="contact.html">Discuss a search</a>
+</div>
 
-<section class="hero">
-  <div class="wrap" style="position:relative; z-index:1;">
-    <span class="mono eyebrow">Executive Search Boutique</span>
-    <h1>
-      <span class="line"><span>Building leadership</span></span>
-      <span class="line"><span>teams worldwide.</span></span>
-    </h1>
-    <div class="hero-sub" style="margin-top:40px;">
-      <p class="lede" style="margin-top:0;">We identify and secure exceptional executive and specialist talent through a confidential, tailored search process.</p>
-      <div class="cta-row">
-        <a href="contact.html" class="btn btn-primary">Discuss a search</a>
-        <span class="mono" style="color:var(--grey); font-size:11px;">Partner-led · Confidential · International</span>
-      </div>
-      <p class="mono" style="color:var(--olive); margin-top:34px; font-size:12px;">The right hire.</p>
-    </div>
-    <div class="line-reveal" style="margin-top:70px;"></div>
+<main id="main">
+
+<section class="hero wrap" data-bar="cream" aria-label="Introduction">
+  <h1>
+    <span class="ln">Building leadership</span>
+    <span class="ln"><span class="window" aria-hidden="true"><img src="assets/img/arcade.jpg" width="2400" height="1500" alt=""></span>teams worldwide.</span>
+  </h1>
+  <div class="window-m" aria-hidden="true"><img src="assets/img/arcade.jpg" width="2400" height="1500" alt=""></div>
+  <div class="hero-foot">
+    <p class="meta mono">Executive search boutique · Retail, fashion &amp; luxury</p>
+    <p class="lead">We find the leaders who are not looking, and approach them in confidence. Partner-led from the first brief to the appointment.</p>
+    <a class="btn act" href="#who">Choose the role you need</a>
   </div>
 </section>
 
-<section style="padding:44px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline);">
-  <div class="wrap" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:space-between;">
-    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;">
-      <span class="mono" style="color:var(--grey);">Fashion &amp; Luxury —</span>
-      <span style="font-weight:600; color:#3a3a3a; font-size:15px;">Patrizia Pepe</span>
-    </div>
-    <div style="display:flex; flex-wrap:wrap; gap:10px; align-items:baseline;">
-      <span class="mono" style="color:var(--grey);">Retail &amp; Lifestyle —</span>
-      <span style="font-weight:600; color:#3a3a3a; font-size:15px;">Skechers</span>
-      <span style="font-weight:600; color:#3a3a3a; font-size:15px;">Mountain Warehouse</span>
-      <span style="font-weight:600; color:#3a3a3a; font-size:15px;">VFL</span>
-    </div>
-  </div>
+<section class="intro wrap" data-bar="cream" aria-label="How we are different">
+  <p class="rv">We do not send piles of <span class="thumb" aria-hidden="true"><img src="assets/img/herringbone.jpg" width="1800" height="1200" alt="" loading="lazy"></span>CVs. We map the market, approach the few who fit, and present one <span class="thumb" aria-hidden="true"><img src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy"></span>shortlist you can act on.</p>
 </section>
 
-<section class="section" id="about">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <h2>Executive search,<br>shaped around your business.</h2>
-      <p class="support">Every search begins with a precise understanding of the role, the market and the leadership context. We work closely with each client from first conversation to successful appointment.</p>
-    </div>
-    <div class="tag-row reveal">
-      <span class="tag">CEOs &amp; Founders</span>
-      <span class="tag">Managing Directors</span>
-      <span class="tag">Country Managers</span>
-      <span class="tag">HR &amp; Talent Directors</span>
-      <span class="tag">Retail &amp; Expansion Directors</span>
-      <span class="tag">Commercial Directors</span>
-      <span class="tag">People Directors</span>
-      <span class="tag">Operations Directors</span>
+<section class="band" data-bar="ink" aria-labelledby="offmarket">
+  <div class="pic"><video id="bandImg" autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video></div>
+  <div class="band-cap wrap">
+    <div class="grid">
+      <h2 id="offmarket" class="rv">Off-market.</h2>
+      <p class="rv" style="--i:1">They are already behind the glass, running someone else’s floor. They take calls, not adverts.</p>
+      <p class="mono rv" style="--i:2">Arcade, rendered for TalentSupplier. Every image on this page is made for it, not stock.</p>
     </div>
   </div>
 </section>
 
-<section class="section" id="services">
-  <div class="wrap">
-    <span class="mono arrow-eyebrow" style="display:block; margin-bottom:20px;">↘ What we do</span>
-    <div class="section-head reveal">
-      <h2>From flagship floor<br>to executive committee.</h2>
-      <p class="support">TalentSupplier does not send CVs. We map the market, identify decision-grade talent, approach candidates discreetly, and help you hire with precision.</p>
-    </div>
-    <div class="role-list reveal">
-      <div class="role-row">
-        <span class="idx">01</span>
-        <h3>Executive Search</h3>
-        <p>End-to-end search for senior leaders and high-impact specialists. Every mandate is researched, approached and assessed with care.</p>
-        <div class="tags"><span>Leadership appointments</span><span>Specialist roles</span><span>International search</span></div>
-      </div>
-      <div class="role-row">
-        <span class="idx">02</span>
-        <h3>Store Management Recruitment</h3>
-        <p>Targeted recruitment for Store Managers, Assistant Store Managers, Area Managers and other retail management roles.</p>
-        <div class="tags"><span>Store Managers</span><span>Assistant Store Managers</span><span>Area Managers</span></div>
-      </div>
-      <div class="role-row">
-        <span class="idx">03</span>
-        <h3>Retail Leadership Hiring</h3>
-        <p>Executive and management-level search for retail businesses requiring experienced commercial and operational leadership.</p>
-        <div class="tags"><span>Retail directors</span><span>Regional leadership</span><span>Store operations</span></div>
-      </div>
-      <div class="role-row">
-        <span class="idx">04</span>
-        <h3>Luxury &amp; Fashion Talent Mapping</h3>
-        <p>Focused market intelligence and candidate identification across Luxury, Fashion and Lifestyle talent networks.</p>
-        <div class="tags"><span>Luxury leadership</span><span>Fashion management</span><span>European talent mapping</span></div>
-      </div>
-      <div class="role-row">
-        <span class="idx">05</span>
-        <h3>Confidential Candidate Approach</h3>
-        <p>Direct, discreet outreach to carefully selected professionals, with candidate and client information handled confidentially.</p>
-        <div class="tags"><span>Selected outreach</span><span>Confidentiality</span><span>Candidate care</span></div>
-      </div>
-      <div class="role-row">
-        <span class="idx">06</span>
-        <h3>Success-Based Recruitment</h3>
-        <p>A focused recruitment model in which the professional fee is linked to a successful appointment.</p>
-        <div class="tags"><span>Clear brief</span><span>Targeted search</span><span>Careful assessment</span></div>
-      </div>
-    </div>
+<section class="roles wrap" id="who" data-bar="step" aria-labelledby="whoTitle">
+  <div class="grid">
+    <h2 id="whoTitle" class="rv" style="grid-column:1/-1">Who do you need?</h2>
+    <p class="lede rv" style="--i:1">Choose a role. We show you how we would search for it, and your email opens with the brief already started.</p>
   </div>
-</section>
-
-<section class="quote-section">
-  <div class="wrap">
-    <blockquote class="reveal">A precise search costs less than the wrong hire.</blockquote>
-    <p class="support reveal">Every search begins with a precise understanding of the role, the market and the leadership context — from first conversation to successful appointment.</p>
-    <div class="points reveal">
-      <div class="pt"><span class="mono">Partner-led</span><p>Direct involvement from first conversation to appointment.</p></div>
-      <div class="pt"><span class="mono">Confidential</span><p>Discreet approach to candidates who are not applying anywhere.</p></div>
-      <div class="pt"><span class="mono">International</span><p>Search across markets, not limited to one region.</p></div>
-      <div class="pt"><span class="mono">Specialist</span><p>Built on retail, fashion and luxury, not generalist recruiting.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="approach">
-  <div class="wrap">
-    <span class="mono arrow-eyebrow" style="display:block; margin-bottom:20px;">↘ How we work</span>
-    <div class="section-head reveal">
-      <h2>A rigorous search.<br>A personal approach.</h2>
-      <p class="support">Every mandate is tailored. The process remains disciplined, transparent and partner-led from first conversation to successful appointment.</p>
-    </div>
-    <div class="principle-row reveal" style="grid-template-columns:repeat(3,1fr); border:1px solid var(--hairline);">
-      <div class="principle">
-        <span class="ghost-num">01</span>
-        <h3>Discovery</h3>
-        <p>Clarify the brief, leadership context, success criteria and search priorities.</p>
+  <div class="grid body">
+    <figure class="rv" style="--i:2">
+      <div class="ph"><img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind a shop window" loading="lazy"></div>
+      <figcaption class="mono">Behind the window. Rendered for TalentSupplier.</figcaption>
+    </figure>
+    <div class="table" id="roleTable">
+      <div class="group rv">
+        <h3>The flagship floor</h3>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Assistant%20Store%20Manager" data-role="Assistant Store Manager" data-how="We map assistant managers in flagship and outlet stores of comparable brands, and approach the ones ready for the step."><span>Assistant Store Manager</span><span class="k">Store management</span><span class="v">One store</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Store%20Manager" data-role="Store Manager" data-how="We look at store managers running teams and targets similar to yours, including those not on the market."><span>Store Manager</span><span class="k">Store management</span><span class="v">One store</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Area%20Manager" data-role="Area Manager" data-how="We search for leaders who already manage several doors, and test how they coach store managers from a distance."><span>Area Manager</span><span class="k">Store management</span><span class="v">Several stores</span><span class="ar" aria-hidden="true">→</span></a>
       </div>
-      <div class="principle">
-        <span class="ghost-num">02</span>
-        <h3>Market Mapping</h3>
-        <p>Define the relevant talent landscape, organisations and profiles across target markets.</p>
+      <div class="group rv">
+        <h3>The region</h3>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Retail%20%26%20Expansion%20Director" data-role="Retail &amp; Expansion Director" data-how="We map retail leaders who have opened and grown networks in your target markets, and approach them directly."><span>Retail &amp; Expansion Director</span><span class="k">Retail leadership</span><span class="v">Region or country</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Operations%20Director" data-role="Operations Director" data-how="We look for operators who have run store standards, staffing and process across a region."><span>Operations Director</span><span class="k">Retail leadership</span><span class="v">Region or country</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Commercial%20Director" data-role="Commercial Director" data-how="We map commercial leaders with a record across retail, wholesale and partners in your category."><span>Commercial Director</span><span class="k">Executive search</span><span class="v">Country</span><span class="ar" aria-hidden="true">→</span></a>
       </div>
-      <div class="principle">
-        <span class="ghost-num">03</span>
-        <h3>Executive Search</h3>
-        <p>Approach carefully selected candidates directly, confidentially and with considered positioning.</p>
+      <div class="group rv">
+        <h3>The executive committee</h3>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Country%20Manager" data-role="Country Manager" data-how="A confidential search across brands that operate at your level in the country, led by the partner throughout."><span>Country Manager</span><span class="k">Executive search</span><span class="v">Country</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20HR%20%26%20People%20Director" data-role="HR &amp; People Director" data-how="We look for people leaders who know retail teams from the floor up, and who have built them across markets."><span>HR &amp; People Director</span><span class="k">Executive search</span><span class="v">Company</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20Managing%20Director" data-role="Managing Director" data-how="A discreet approach to general managers with P&amp;L ownership in comparable businesses."><span>Managing Director</span><span class="k">Executive search</span><span class="v">Company</span><span class="ar" aria-hidden="true">→</span></a>
+        <a class="role" href="mailto:info@talentsupplier.eu?subject=Search%20brief%3A%20CEO" data-role="CEO" data-how="A fully confidential search, partner-led from the first conversation to the appointment."><span>CEO</span><span class="k">Executive search</span><span class="v">Company</span><span class="ar" aria-hidden="true">→</span></a>
       </div>
-      <div class="principle">
-        <span class="ghost-num">04</span>
-        <h3>Assessment</h3>
-        <p>Evaluate experience, leadership capability, motivation and cultural alignment.</p>
-      </div>
-      <div class="principle">
-        <span class="ghost-num">05</span>
-        <h3>Placement</h3>
-        <p>Support interviews, references, offer management and a confident final decision.</p>
-      </div>
-      <div class="principle">
-        <span class="ghost-num">06</span>
-        <h3>Follow-up</h3>
-        <p>Stay close after appointment to support integration and the long-term relationship.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="industries">
-  <div class="wrap">
-    <span class="mono arrow-eyebrow" style="display:block; margin-bottom:20px;">↘ Where we specialise</span>
-    <div class="section-head reveal">
-      <h2>Sector depth.<br>Broader perspective.</h2>
-      <p class="support">Retail and Luxury remain our deepest areas of expertise. We bring the same disciplined, relationship-led search approach to ambitious organisations across adjacent consumer and specialist sectors.</p>
-    </div>
-    <div class="industry-list reveal" style="grid-template-columns:repeat(2,1fr); margin-bottom:24px;">
-      <div class="industry-cell"><span class="mono" style="color:var(--olive); font-size:10.5px;">Core expertise</span><h3 style="margin-top:14px;">Retail</h3><p>Store, area and regional leadership at flagship standard.</p></div>
-      <div class="industry-cell"><span class="mono" style="color:var(--olive); font-size:10.5px;">Core expertise</span><h3 style="margin-top:14px;">Luxury</h3><p>Leadership for brands where reputation is the product.</p></div>
-    </div>
-    <div class="tag-row reveal">
-      <span class="tag">Fashion</span>
-      <span class="tag">Beauty</span>
-      <span class="tag">Hospitality</span>
-      <span class="tag">Consumer Goods</span>
-      <span class="tag">Technology</span>
-      <span class="tag">Healthcare</span>
-      <span class="tag">Industrial</span>
-      <span class="tag">Professional Services</span>
-    </div>
-  </div>
-</section>
-
-<section class="final-cta" id="contact">
-  <div class="wrap">
-    <h2 class="serif reveal">Let's discuss your next strategic hire.</h2>
-    <p class="support reveal" style="max-width:46ch; margin:0 auto 36px; color:#4d4d4d;">Tell us what role you need to hire, what challenge you are solving, and what kind of talent would change the outcome.</p>
-    <a href="mailto:info@talentsupplier.eu" class="btn btn-primary reveal">info@talentsupplier.eu</a>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <div class="wordmark">Talent<span class="accent">Supplier</span></div>
-        <p class="trust">TalentSupplier is an executive search boutique helping ambitious companies identify, approach and secure high-impact talent.</p>
-      </div>
-      <div>
-        <h4 class="mono">Navigate</h4>
-        <div class="flist">
-          <a href="about.html">About</a>
-          <a href="services.html">Services</a>
-          <a href="industries.html">Industries</a>
-          <a href="journal.html">Insights</a>
+      <div class="brief" id="brief" aria-live="polite">
+        <p id="briefText"></p>
+        <div class="row">
+          <a class="btn" id="briefMail" href="mailto:info@talentsupplier.eu">Start this brief by email</a>
+          <span class="mono">info@talentsupplier.eu</span>
         </div>
       </div>
-      <div>
-        <h4 class="mono">Contact</h4>
-        <div class="flist">
-          <a href="mailto:info@talentsupplier.eu">info@talentsupplier.eu</a>
-          <a href="contact.html">Discuss a search</a>
-        </div>
-      </div>
-      <div>
-        <h4 class="mono">Working model</h4>
-        <p class="trust" style="max-width:none;">TalentSupplier operates as a confidential, success-based search partner — for both client and candidate.</p>
-      </div>
-      <div>
-        <h4 class="mono">Legal</h4>
-        <div class="flist">
-          <a href="privacy-policy.html">Privacy Policy</a>
-          <a href="legal-notice.html">Legal Notice</a>
-        </div>
-      </div>
+      <p class="else">Not on the list? Specialist roles and talent mapping across luxury and fashion are part of what we do. <a href="mailto:info@talentsupplier.eu?subject=Search%20brief">Write to us with the role</a>.</p>
     </div>
-    <div class="foot-bottom">
-      <span>© 2026 TalentSupplier. All rights reserved.</span>
-      <span>Executive Search Boutique</span>
+  </div>
+</section>
+
+<section class="proof wrap" data-bar="cream" aria-label="Brands we have searched for">
+  <p class="rv lit-list">Brands we have searched for: <span class="n">Patrizia Pepe</span>, <span class="n">Skechers</span>, <span class="n">Mountain Warehouse</span> and <span class="n">VFL</span>.</p>
+  <p class="mono rv" style="--i:1">Fashion &amp; luxury · Retail &amp; lifestyle</p>
+</section>
+
+<section class="verbs" aria-labelledby="howTitle">
+  <h2 id="howTitle" class="verbs-title">How a search runs</h2>
+  <div class="panel" data-bar="ink">
+    <img src="assets/img/silk.jpg" width="1800" height="1200" alt="Folds of green satin catching the light" loading="lazy">
+    <div class="vw"><p class="verb" aria-hidden="true">Listen</p></div>
+    <p class="say"><strong>First, we learn the brief.</strong>The role, the leadership context, what success looks like and what matters most in the search.</p>
+  </div>
+  <div class="panel" data-bar="ink">
+    <img src="assets/img/facade.jpg" width="2100" height="1400" alt="A Parisian boulevard façade at dusk, some windows lit" loading="lazy">
+    <div class="vw"><p class="verb" aria-hidden="true">Map</p></div>
+    <p class="say"><strong>Then we map the market.</strong>The organisations, profiles and people that matter across your target markets.</p>
+  </div>
+  <div class="panel" data-bar="ink">
+    <img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind" loading="lazy">
+    <div class="vw"><p class="verb" aria-hidden="true">Approach</p></div>
+    <p class="say"><strong>We approach the few who fit.</strong>Directly and in confidence, including people who are not applying anywhere.</p>
+  </div>
+  <div class="panel" data-bar="ink">
+    <img src="assets/img/herringbone.jpg" width="1800" height="1200" alt="Herringbone wool cloth, close up" loading="lazy">
+    <div class="vw"><p class="verb" aria-hidden="true">Assess</p></div>
+    <p class="say"><strong>You meet a shortlist.</strong>Assessed for experience, leadership, motivation and culture. We support interviews, references and the offer.</p>
+  </div>
+  <div class="panel light" data-bar="cream">
+    <img src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble floor" loading="lazy">
+    <div class="vw"><p class="verb" aria-hidden="true">Place</p></div>
+    <p class="say"><strong>We stay close after.</strong>Through integration and beyond. Our fee is linked to a successful appointment.</p>
+  </div>
+</section>
+
+<section class="model wrap" data-bar="cream" aria-labelledby="modelTitle">
+  <h2 id="modelTitle" class="verbs-title">Working model</h2>
+  <div class="grid">
+    <dl class="facts mono rv">
+      <div><dt>Model</dt><dd>Success-based</dd></div>
+      <div><dt>Led by</dt><dd>The partner, throughout</dd></div>
+      <div><dt>Handled</dt><dd>In confidence</dd></div>
+    </dl>
+    <div class="text rv" style="--i:1">
+      <p><span class="cap" aria-hidden="true"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"></span>A search boutique for retail, fashion and luxury. Every mandate tailored, every conversation discreet.</p>
+      <p>We work on a success-based basis, and we choose quality, clarity and long relationships over volume.</p>
     </div>
+    <div class="principles">
+      <div class="rv" style="--i:0"><strong>Partner-led</strong><p>Direct involvement from first conversation to appointment.</p></div>
+      <div class="rv" style="--i:1"><strong>Confidential</strong><p>A discreet approach, for the client and for the candidate.</p></div>
+      <div class="rv" style="--i:2"><strong>International</strong><p>Searches across markets, not limited to one region.</p></div>
+      <div class="rv" style="--i:3"><strong>Specialist</strong><p>Built on retail, fashion and luxury, not generalist recruiting.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sectors wrap" data-bar="cream" aria-labelledby="secTitle">
+  <div class="grid">
+    <h2 id="secTitle" class="rv">Sector depth. Broader view.</h2>
+    <p class="lede rv" style="--i:1">Retail and luxury are our deepest expertise. We bring the same disciplined, relationship-led search to ambitious companies in neighbouring sectors.</p>
+    <table class="rv" style="--i:2">
+      <thead class="sr"><tr><th scope="col">Sector</th><th scope="col">Depth</th><th scope="col">Selected brands</th></tr></thead>
+      <tbody>
+        <tr><td>Retail &amp; lifestyle</td><td class="core">Core expertise</td><td>Skechers, Mountain Warehouse, VFL</td></tr>
+        <tr><td>Fashion &amp; luxury</td><td class="core">Core expertise</td><td>Patrizia Pepe</td></tr>
+        <tr><td>Beauty</td><td>Adjacent</td><td></td></tr>
+        <tr><td>Hospitality</td><td>Adjacent</td><td></td></tr>
+        <tr><td>Consumer goods</td><td>Adjacent</td><td></td></tr>
+        <tr><td>Technology, healthcare, industrial and professional services</td><td>Adjacent</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="close wrap" data-bar="ink" aria-labelledby="closeTitle">
+  <h2 id="closeTitle" class="rv">Your next leader is not looking.</h2>
+  <div class="foot">
+    <p class="rv" style="--i:1">Tell us the role, the challenge and the kind of person who would change the outcome. We will tell you how we would find them.</p>
+    <a class="btn rv" style="--i:2" href="contact.html">Discuss a search</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot-site wrap" data-bar="green">
+  <div class="top">
+    <div class="notes">
+      <div><strong>TalentSupplier</strong>Executive search boutique for retail, fashion and luxury.</div>
+      <div>A confidential, success-based search partner, for both client and candidate.</div>
+      <div>Based in Madrid. Searching across markets.</div>
+    </div>
+    <a href="#main" class="mono">Back to top ↑</a>
+  </div>
+  <a class="mail" href="mailto:info@talentsupplier.eu">info<br>@talentsupplier.eu</a>
+  <div class="meta">
+    <nav aria-label="Footer">
+      <a href="about.html">About</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a>
+    </nav>
+    <span class="mono">Imagery: original renders</span>
+    <span class="r mono">© 2026 TalentSupplier · Madrid</span>
   </div>
 </footer>
 
-<script>
-  const header = document.getElementById('siteHeader');
-  const menuToggle = document.querySelector('.menu-toggle');
-  const mobileNav = document.getElementById('mobileNav');
-  if(menuToggle && mobileNav){
-    menuToggle.addEventListener('click', () => {
-      const isOpen = mobileNav.classList.toggle('open');
-      menuToggle.setAttribute('aria-expanded', isOpen);
-    });
-    mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-      mobileNav.classList.remove('open');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    }));
-  }
-  window.addEventListener('scroll', () => {
-    header.classList.toggle('scrolled', window.scrollY > 40);
-  });
-
-  const revealEls = document.querySelectorAll('.reveal, .line-reveal');
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if(e.isIntersecting){
-        // stagger siblings that enter together for a smoother cascade
-        const siblings = Array.from(e.target.parentElement.querySelectorAll('.reveal, .line-reveal'));
-        const i = siblings.indexOf(e.target);
-        e.target.style.setProperty('--d', (i * 0.09) + 's');
-        e.target.classList.add('in');
-        io.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  revealEls.forEach(el => io.observe(el));
-</script>
-
+<script src="assets/site.js" defer></script>
 </body>
 </html>
