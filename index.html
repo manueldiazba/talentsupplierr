@@ -20,23 +20,30 @@
 <link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preload" href="assets/img/arcade-loop-poster.jpg" as="image">
+<link rel="preload" href="assets/img/silk-loop-poster.jpg" as="image">
 <script src="assets/map-data.js" defer></script>
 <style>
 /* ---------- hero: the view, and a column of chapters beside it ---------- */
 .hero{height:100svh;min-height:620px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:10px}
-.hero .panel{grid-column:1/11;position:relative;overflow:hidden;background:var(--green);color:var(--on-dark);display:flex;flex-direction:column;justify-content:space-between;padding:26px 28px 32px}
-.hero .panel>video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);animation:drift 24s var(--ease-io) infinite alternate}
-@keyframes drift{to{transform:scale(1.12) translateY(-1.5%)}}
-.hero .panel::before{content:"";position:absolute;inset:0;background:rgba(8,26,22,.3);z-index:1;pointer-events:none}
-.hero .panel>*:not(video){position:relative;z-index:2}
+.hero .panel{grid-column:1/11;position:relative;overflow:hidden;background:var(--deep);color:var(--on-dark);display:flex;flex-direction:column;padding:26px 28px 32px}
+.hero .hfield{position:absolute;inset:0;width:100%;height:100%}
+.hero .panel>*:not(.hfield){position:relative;z-index:2}
 .hero .top{display:flex;justify-content:space-between;align-items:center}
 .hero .wm{font-size:20px}
 .hero .wm i{background:var(--paper)}
 .hero .clock{font-size:15px;font-weight:500;opacity:.85}
-.hero h1{font-size:clamp(44px,7.6vw,140px);letter-spacing:-.052em;line-height:.9;margin-top:-6vh}
+.hero .win{position:absolute!important;right:28px;top:84px;width:min(38%,52vh);aspect-ratio:1;margin:0;z-index:2}
+.hero .win .pane{position:absolute;inset:0;overflow:hidden;background:var(--green);transform-origin:50% 50%}
+.hero .win video,.hero .win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1.2s var(--ease-io),transform 5.2s linear}
+.hero .win .on{opacity:1;transform:scale(1.02)}
+.hero .win figcaption{position:absolute;left:12px;top:10px;color:var(--paper);white-space:nowrap;z-index:2}
+.js .hero .win .pane{transform:scale(.025);transition:transform 1.5s var(--ease-io)}
+.js .hero .win figcaption{opacity:0;transition:opacity .8s .9s}
+.js .hero.open .win .pane{transform:none}
+.js .hero.open .win figcaption{opacity:1}
+.hero h1{font-size:clamp(44px,7.6vw,140px);letter-spacing:-.052em;line-height:.9;margin-top:auto}
 .hero h1 .ln{display:block;white-space:nowrap}
-.hero .pfoot{display:flex;justify-content:space-between;align-items:end;gap:32px}
+.hero .pfoot{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-top:clamp(28px,5vh,56px)}
 .hero .pfoot p{max-width:30ch;font-size:18px;line-height:1.4;font-weight:500}
 .swatch{grid-column:11/13;display:grid;grid-template-rows:repeat(5,1fr);gap:0}
 .swatch a{display:flex;flex-direction:column;justify-content:space-between;padding:18px 18px 16px;text-decoration:none;position:relative;overflow:hidden}
@@ -53,8 +60,10 @@
 @keyframes drop{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
 @media (max-width:900px){
   .hero{height:auto;min-height:0;display:block;padding:8px}
-  .hero .panel{height:68svh;min-height:440px;padding:18px 18px 22px}
-  .hero h1{font-size:clamp(34px,10.6vw,72px);margin-top:0}
+  .hero .panel{height:72svh;min-height:500px;padding:18px 18px 22px}
+  .hero .win{right:18px;top:64px;width:46%}
+  .hero .win .rf{display:none}
+  .hero h1{font-size:clamp(34px,10.6vw,72px)}
   .hero .pfoot{display:block}.hero .pfoot p{font-size:17px;margin-bottom:18px}
   .hero .pfoot .btn{width:100%}
   .swatch{display:block}
@@ -209,11 +218,19 @@
 <main id="main">
 <section class="hero" id="hero" data-c="paper" aria-label="Introduction">
   <div class="panel">
-    <video autoplay muted loop playsinline preload="auto" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video>
+    <canvas class="hfield" id="heroField" aria-hidden="true"></canvas>
     <div class="top">
       <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
       <span class="clock tab" data-clock aria-hidden="true">Madrid</span>
     </div>
+    <figure class="win" id="heroWin"><div class="pane">
+      <video class="on" data-name="Silk" autoplay muted loop playsinline preload="auto" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-label="Green silk moving slowly in the light, seen through a square window"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video>
+      <img data-name="Vitrine" src="assets/img/vitrine.jpg" width="1200" height="1440" alt="" loading="lazy">
+      <img data-name="Curtain" src="assets/img/curtain.jpg" width="1200" height="1440" alt="" loading="lazy">
+      <img data-name="Marble" src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy">
+      <img data-name="Herringbone" src="assets/img/herringbone.jpg" width="1800" height="1200" alt="" loading="lazy">
+      <figcaption class="cap"><span id="winName">Silk</span><span class="rf">, rendered for TalentSupplier</span></figcaption>
+    </div></figure>
     <h1><span class="ln">Building leadership</span><span class="ln">teams worldwide.</span></h1>
     <div class="pfoot">
       <p>We find the leaders who are not looking, and approach them in confidence.</p>
@@ -302,7 +319,7 @@
       <h3>Shortlist</h3><p>Assessed for experience, leadership, motivation and culture. Interviews, references and the offer, supported.</p>
     </div>
     <div class="st rv" style="--i:3">
-      <div class="tile c-ink"><canvas class="fld" data-n="520" data-keep="1" data-win=".74" data-at=".5,.5" data-dot="#F7F5F2" data-one="#0F5C4D" data-img="assets/img/arcade.jpg" data-seed="6" data-dur="2400" aria-hidden="true"></canvas></div>
+      <div class="tile c-ink"><canvas class="fld" data-n="520" data-keep="1" data-win=".74" data-at=".5,.5" data-dot="#F7F5F2" data-one="#0F5C4D" data-img="assets/img/vitrine.jpg" data-seed="6" data-dur="2400" aria-hidden="true"></canvas></div>
       <h3>Appoint</h3><p>One leader in the role, and our support through integration and beyond.</p>
     </div>
   </div>
@@ -347,7 +364,7 @@
 </section>
 
 <section class="act-row" data-c="paper" aria-labelledby="closeTitle">
-  <div class="fl ph"><video autoplay muted loop playsinline preload="none" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-hidden="true"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video></div>
+  <div class="fl ph"><img src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy"></div>
   <div class="mid c-green">
     <h2 id="closeTitle" class="rv">Your next leader is not looking.</h2>
     <div class="row">

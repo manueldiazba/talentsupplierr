@@ -122,6 +122,54 @@
   }
   $$('canvas.fld').forEach(function(cv){var f=new Field(cv); if(io){io.observe(cv);} });
 
+  /* ---------- the hero: the market as a living field; one point opens into the window ----------
+     Points arrive in a wave from the window, settle into a halo around it, and a search pulse
+     leaves the window every few seconds. The pointer is a lens: points near it wake up. */
+  var hf=$('#heroField'), hero=$('#hero'), hw=$('#heroWin');
+  if(hf&&hero&&hw){
+    var hc=hf.getContext('2d'), HW=0,HH=0,hd=1, P=[], wx=0,wy=0,wr=null, mx=-1e4,my=-1e4, t0=performance.now(), live=true, raf2=0;
+    function hbuild(){
+      var r=hf.getBoundingClientRect(); HW=r.width; HH=r.height; hd=Math.min(2,devicePixelRatio||1);
+      hf.width=Math.round(HW*hd); hf.height=Math.round(HH*hd);
+      var pr=hero.querySelector('.panel').getBoundingClientRect(), b=hw.getBoundingClientRect();
+      wr={x:b.left-pr.left,y:b.top-pr.top,w:b.width,h:b.height}; wx=wr.x+wr.w/2; wy=wr.y+wr.h/2;
+      var s=HW<700?15:19, cols=Math.ceil(HW/s), rows=Math.ceil(HH/s), maxd=Math.hypot(Math.max(wx,HW-wx),Math.max(wy,HH-wy));
+      P=[]; for(var y=0;y<rows;y++)for(var x=0;x<cols;x++){var px=(x+.5)*s,py=(y+.5)*s;
+        if(px>wr.x-6&&px<wr.x+wr.w+6&&py>wr.y-6&&py<wr.y+wr.h+6) continue;
+        var dd=Math.hypot(px-wx,py-wy)/maxd; P.push({x:px,y:py,d:dd,j:Math.random()});}
+      hs=s;
+    }
+    var hs=19;
+    function hdraw(now){
+      var t=(now-t0)/1000; hc.setTransform(hd,0,0,hd,0,0); hc.clearRect(0,0,HW,HH);
+      var wave=reduce?9:t*0.9, pulse=reduce?-1:((t-1.6)%5.2)/5.2*1.25, r0=Math.max(1,hs*.075);
+      hc.fillStyle='#CADBD3';
+      for(var i=0;i<P.length;i++){
+        var p=P[i]; if(p.d>wave) continue;
+        var arrive=Math.min(1,(wave-p.d)*5);
+        var near=Math.pow(1-p.d,3), a=.08+.7*near;              // halo: the search is densest near the one
+        var pd=Math.abs(p.d-pulse); if(pulse>0&&pd<.06) a+=.45*(1-pd/.06);  // the pulse passing
+        var ld=Math.hypot(p.x-mx,p.y-my), lens=ld<140?1-ld/140:0;          // the pointer's lens
+        a=Math.min(.95,a+lens*.6)*arrive;
+        var r=r0*(1+near*1.1+lens*1.3+(arrive<1?(1-arrive)*1.5:0));
+        hc.globalAlpha=a; hc.beginPath(); hc.arc(p.x,p.y,r,0,6.2832); hc.fill();
+      }
+      hc.globalAlpha=1;
+      if(!reduce&&live) raf2=requestAnimationFrame(hdraw);
+    }
+    hbuild();
+    // every pulse is a new search: the window changes what it shows
+    var shots=$$('.pane > video, .pane > img',hw), wn=$('#winName'), si=0;
+    if(!reduce&&shots.length>1){setTimeout(function(){setInterval(function(){if(!live) return; shots[si].classList.remove('on'); si=(si+1)%shots.length; shots[si].classList.add('on'); if(wn) wn.textContent=shots[si].getAttribute('data-name');},5200);},1600);}
+    if(reduce){hero.classList.add('open'); hdraw(performance.now());}
+    else{ raf2=requestAnimationFrame(hdraw); setTimeout(function(){hero.classList.add('open');},900); }
+    hero.addEventListener('pointermove',function(e){var r=hf.getBoundingClientRect(); mx=e.clientX-r.left; my=e.clientY-r.top;});
+    hero.addEventListener('pointerleave',function(){mx=my=-1e4;});
+    addEventListener('resize',function(){hbuild(); if(reduce) hdraw(performance.now());});
+    if('IntersectionObserver' in window&&!reduce){new IntersectionObserver(function(es){live=es[0].isIntersecting&&!document.hidden; cancelAnimationFrame(raf2); if(live) raf2=requestAnimationFrame(hdraw);}).observe(hero);}
+    document.addEventListener('visibilitychange',function(){live=!document.hidden; cancelAnimationFrame(raf2); if(live&&!reduce) raf2=requestAnimationFrame(hdraw);});
+  }
+
   /* ---------- who do you need: choose a role, watch the field narrow, start the brief ---------- */
   var roles=$$('.role'), brief=$('#brief'), bt=$('#briefText'), bm=$('#briefMail'), rf=$('#roleField');
   if(roles.length&&brief){
