@@ -224,3 +224,9 @@ body.has-bar{padding-top:var(--bar)}
   .js .lift img,.js .lift video{transform:none}.js .lift::after{display:none}
   .names .track{animation:none}
 }
+
+/* ---------- consent (only when analytics is switched on) ---------- */
+.consent{position:fixed;left:var(--m);bottom:var(--m);z-index:60;max-width:420px;background:var(--ink);color:var(--on-dark);padding:20px 22px;display:flex;flex-direction:column;gap:16px;font-size:15px;line-height:1.45}
+.consent div{display:flex;gap:10px}.consent .btn{min-height:44px;padding:0 18px;font-size:15px}
+.consent .btn--ink{background:var(--deep)}
+@media (max-width:900px){.consent{left:8px;right:8px;bottom:8px;max-width:none}}

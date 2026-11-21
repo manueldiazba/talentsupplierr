@@ -209,3 +209,23 @@
     if(document.fonts&&document.fonts.ready) document.fonts.ready.then(compose); compose();
   }
 })();
+
+/* ---------- analytics, only with consent ----------
+   Paste the GA4 measurement ID (G-XXXXXXXXXX) below to switch it on. Until then nothing loads,
+   no cookie is set and no banner is shown. With an ID, GA4 loads only after the visitor accepts. */
+(function(){
+  var GA4='';
+  if(!GA4) return;
+  var KEY='ts-consent', choice=null; try{choice=localStorage.getItem(KEY);}catch(e){}
+  function load(){
+    window.dataLayer=window.dataLayer||[]; window.gtag=function(){dataLayer.push(arguments);};
+    gtag('js',new Date()); gtag('config',GA4,{anonymize_ip:true});
+    var s=document.createElement('script'); s.async=true; s.src='https://www.googletagmanager.com/gtag/js?id='+GA4; document.head.appendChild(s);
+  }
+  function save(v){try{localStorage.setItem(KEY,v);}catch(e){}}
+  if(choice==='yes'){load();return;} if(choice==='no') return;
+  var bar=document.createElement('div'); bar.className='consent'; bar.setAttribute('role','dialog'); bar.setAttribute('aria-label','Analytics consent');
+  bar.innerHTML='<p>We would like to measure visits with Google Analytics. Nothing is stored unless you agree. <a class="link" href="privacy-policy.html#cookies">Privacy</a></p><div><button class="btn btn--paper" data-v="yes">Accept</button><button class="btn btn--ink" data-v="no">Decline</button></div>';
+  bar.addEventListener('click',function(e){var v=e.target.closest('button'); if(!v) return; v=v.getAttribute('data-v'); save(v); if(v==='yes') load(); bar.remove();});
+  document.body.appendChild(bar);
+})();
