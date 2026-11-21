@@ -20,31 +20,26 @@
 <link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
-<link rel="preload" href="assets/img/silk-loop-poster.jpg" as="image">
+<link rel="preload" href="assets/img/seat-2200.jpg" as="image" imagesrcset="assets/img/seat-1200.jpg 1200w, assets/img/seat-2200.jpg 2200w" imagesizes="(max-width:900px) 100vw, 84vw">
 <script src="assets/map-data.js" defer></script>
 <style>
 /* ---------- hero: the view, and a column of chapters beside it ---------- */
 .hero{height:100svh;min-height:620px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:10px;padding:10px}
-.hero .panel{grid-column:1/11;position:relative;overflow:hidden;background:var(--deep);color:var(--on-dark);display:flex;flex-direction:column;padding:26px 28px 32px}
-.hero .hfield{position:absolute;inset:0;width:100%;height:100%}
-.hero .panel>*:not(.hfield){position:relative;z-index:2}
+.hero .panel{grid-column:1/11;position:relative;overflow:hidden;background:var(--deep);color:var(--on-dark);display:flex;flex-direction:column;padding:26px 28px 28px}
+.hero .seat{position:absolute;inset:0;margin:0}
+.hero .seat img{width:100%;height:100%;object-fit:cover;object-position:80% 100%;transform-origin:78% 82%;animation:breathe 24s var(--ease-io) infinite alternate}
+@keyframes breathe{from{transform:scale(1.01)}to{transform:scale(1.06)}}
+.hero .seat figcaption{position:absolute;right:28px;bottom:24px;color:var(--on-dark-soft);z-index:2}
+.hero .panel>*:not(.seat){position:relative;z-index:2}
 .hero .top{display:flex;justify-content:space-between;align-items:center}
 .hero .wm{font-size:20px}
 .hero .wm i{background:var(--paper)}
 .hero .clock{font-size:15px;font-weight:500;opacity:.85}
-.hero .win{position:absolute!important;right:28px;top:84px;width:min(38%,52vh);aspect-ratio:1;margin:0;z-index:2}
-.hero .win .pane{position:absolute;inset:0;overflow:hidden;background:var(--green);transform-origin:50% 50%}
-.hero .win video,.hero .win img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.12);transition:opacity 1.2s var(--ease-io),transform 5.2s linear}
-.hero .win .on{opacity:1;transform:scale(1.02)}
-.hero .win figcaption{position:absolute;left:12px;top:10px;color:var(--paper);white-space:nowrap;z-index:2}
-.js .hero .win .pane{transform:scale(.025);transition:transform 1.5s var(--ease-io)}
-.js .hero .win figcaption{opacity:0;transition:opacity .8s .9s}
-.js .hero.open .win .pane{transform:none}
-.js .hero.open .win figcaption{opacity:1}
-.hero h1{font-size:clamp(44px,7.6vw,140px);letter-spacing:-.052em;line-height:.9;margin-top:auto}
+.hero .clock-m{display:none}
+.hero h1{font-size:clamp(44px,7.6vw,140px);letter-spacing:-.052em;line-height:.9;margin-top:clamp(64px,15vh,170px)}
 .hero h1 .ln{display:block;white-space:nowrap}
-.hero .pfoot{display:flex;justify-content:space-between;align-items:end;gap:32px;margin-top:clamp(28px,5vh,56px)}
-.hero .pfoot p{max-width:30ch;font-size:18px;line-height:1.4;font-weight:500}
+.hero .pfoot{display:flex;flex-direction:column;align-items:flex-start;gap:24px;margin-top:clamp(24px,4vh,40px)}
+.hero .pfoot p{max-width:32ch;font-size:18px;line-height:1.45;font-weight:500}
 .swatch{grid-column:11/13;display:grid;grid-template-rows:repeat(5,1fr);gap:0}
 .swatch a{display:flex;flex-direction:column;justify-content:space-between;padding:18px 18px 16px;text-decoration:none;position:relative;overflow:hidden}
 .swatch a b{font-size:18px;font-weight:600;letter-spacing:-.02em;display:flex;justify-content:space-between;align-items:center}
@@ -60,10 +55,11 @@
 @keyframes drop{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0)}}
 @media (max-width:900px){
   .hero{height:auto;min-height:0;display:block;padding:8px}
-  .hero .panel{height:72svh;min-height:500px;padding:18px 18px 22px}
-  .hero .win{right:18px;top:64px;width:46%}
-  .hero .win .rf{display:none}
-  .hero h1{font-size:clamp(34px,10.6vw,72px)}
+  .hero .panel{height:80svh;min-height:560px;padding:18px 18px 22px}
+  .hero .seat img{object-position:82% 100%}
+  .hero .top .clock{display:none}
+  .hero .clock-m{display:block;margin-top:auto}
+  .hero h1{font-size:clamp(34px,10.6vw,72px);margin-top:36px}
   .hero .pfoot{display:block}.hero .pfoot p{font-size:17px;margin-bottom:18px}
   .hero .pfoot .btn{width:100%}
   .swatch{display:block}
@@ -82,7 +78,7 @@
 .tiles .b strong{font-size:clamp(64px,9vw,172px);font-weight:600;letter-spacing:-.06em;line-height:.84}
 .tiles .b span{font-size:15px;font-weight:600;align-self:flex-end}
 .tiles .c{grid-column:9/13;grid-row:2}
-.tiles .c img{width:100%;height:100%;object-fit:cover}
+.tiles .c img,.tiles .c video{width:100%;height:100%;object-fit:cover}
 .tiles .c .cap{position:absolute;left:14px;bottom:12px;color:var(--on-dark)}
 .tiles-text{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);padding-block:clamp(72px,9vw,140px) var(--gap)}
 .tiles-text p{grid-column:6/12;font-size:var(--t-statement);font-weight:500;letter-spacing:-.022em;line-height:1.28}
@@ -218,24 +214,17 @@
 <main id="main">
 <section class="hero" id="hero" data-c="paper" aria-label="Introduction">
   <div class="panel">
-    <canvas class="hfield" id="heroField" aria-hidden="true"></canvas>
+    <figure class="seat"><img src="assets/img/seat-2200.jpg" srcset="assets/img/seat-1200.jpg 1200w, assets/img/seat-2200.jpg 2200w" sizes="(max-width:900px) 100vw, 84vw" width="2200" height="1500" alt="An empty lounge chair in a quiet room, lit by sunlight falling through a window" fetchpriority="high"></figure>
     <div class="top">
       <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
       <span class="clock tab" data-clock aria-hidden="true">Madrid</span>
     </div>
-    <figure class="win" id="heroWin"><div class="pane">
-      <video class="on" data-name="Silk" autoplay muted loop playsinline preload="auto" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-label="Green silk moving slowly in the light, seen through a square window"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video>
-      <img data-name="Vitrine" src="assets/img/vitrine.jpg" width="1200" height="1440" alt="" loading="lazy">
-      <img data-name="Curtain" src="assets/img/curtain.jpg" width="1200" height="1440" alt="" loading="lazy">
-      <img data-name="Marble" src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy">
-      <img data-name="Herringbone" src="assets/img/herringbone.jpg" width="1800" height="1200" alt="" loading="lazy">
-      <figcaption class="cap"><span id="winName">Silk</span><span class="rf">, rendered for TalentSupplier</span></figcaption>
-    </div></figure>
     <h1><span class="ln">Building leadership</span><span class="ln">teams worldwide.</span></h1>
     <div class="pfoot">
-      <p>We find the leaders who are not looking, and approach them in confidence.</p>
+      <p>Every search begins with an empty chair. We fill it with the leader who is not looking, approached in confidence.</p>
       <a class="btn btn--paper" href="#who">Choose the role you need <span class="ar" aria-hidden="true">→</span></a>
     </div>
+    <span class="clock clock-m tab" data-clock aria-hidden="true">Madrid</span>
   </div>
   <nav class="swatch" aria-label="Main">
     <a class="c-stone" href="services.html"><b>Services</b><span>From the shop floor to the boardroom</span></a>
@@ -253,7 +242,7 @@
       <p class="rv" style="--i:1">They are already behind the glass, running someone else’s floor. They take calls, not adverts.</p>
     </div>
     <div class="b c-mint rv" style="--i:1"><strong>One</strong><span>shortlist, not a pile of CVs</span></div>
-    <figure class="c ph lift"><img src="assets/img/vitrine.jpg" width="1200" height="1440" alt="Green curtains lit behind the panes of a shop vitrine" loading="lazy"><figcaption class="cap">Vitrine, rendered for TalentSupplier</figcaption></figure>
+    <figure class="c ph lift"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-label="Green silk moving slowly in the light"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video><figcaption class="cap">Silk, rendered for TalentSupplier</figcaption></figure>
   </div>
   <div class="tiles-text wrap">
     <p class="k rv"><i aria-hidden="true"></i>Why off-market</p>
