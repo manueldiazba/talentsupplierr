@@ -3,51 +3,72 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Services — TalentSupplier | Executive Search Boutique</title>
-<meta name="description" content="Executive search, store management recruitment, retail leadership hiring, luxury and fashion talent mapping, confidential approach, success-based.">
+<title>Services | TalentSupplier</title>
+<meta name="description" content="Executive search, retail leadership hiring, store management recruitment, talent mapping and confidential approach for retail, fashion, luxury and lifestyle brands.">
+<meta name="theme-color" content="#0F5C4D">
+<link rel="canonical" href="https://talentsupplier.eu/services.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TalentSupplier">
+<meta property="og:title" content="Services | TalentSupplier">
+<meta property="og:description" content="Executive search, retail leadership hiring, store management recruitment, talent mapping and confidential approach for retail, fashion, luxury and lifestyle brands.">
+<meta property="og:image" content="https://talentsupplier.eu/assets/brand/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
+
 <style>
-.page-hero h1.sv{font-size:clamp(28px,6.5vw,124px)}
-.s-lead{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px);margin-top:clamp(40px,5vw,72px)}
-.s-lead p{grid-column:7/12;font-size:var(--t-body);max-width:46ch}
-.svcs{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px);padding-bottom:var(--gap)}
-.stage{grid-column:1/6;position:sticky;top:96px;height:calc(100svh - 128px);align-self:start;overflow:hidden;background:var(--green)}
-.stage img,.stage video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1.04);transition:opacity .7s var(--ease),transform 1.2s var(--ease)}
-.stage img.on,.stage video.on{opacity:1;transform:none}
-.list{grid-column:7/13}
-.svc{min-height:72vh;display:flex;flex-direction:column;justify-content:center;padding-block:40px;color:#66615B;transition:color .5s var(--ease)}
-.svc.now,.no-js .svc{color:var(--ink)}
-.svc h2{font-size:clamp(30px,3.4vw,56px);line-height:1.02}
-.svc p{margin-top:20px;max-width:44ch;font-size:var(--t-body)}
-.svc .scope{margin-top:20px;color:inherit}
-.svc .m-pic{display:none}
-.how{background:var(--green);color:var(--on-dark);padding-block:var(--gap)}
-.how .grid{align-items:start}
-.how h2{grid-column:1/7}
-.how .txt{grid-column:8/13}
-.how .txt p+p{margin-top:16px}
-.how a{color:var(--on-dark)}
-@media (max-width:860px){
-  .s-lead p,.list,.how h2,.how .txt{grid-column:1/-1}
-  .stage{display:none}
-  .svc{min-height:0;color:var(--ink);padding-block:28px 44px}
-  .svc .m-pic{display:block;aspect-ratio:3/2;overflow:hidden;background:var(--green);margin-bottom:24px}
-  .how .txt{margin-top:28px}
+/* six services: the render beside each one changes as you read */
+.svc{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);padding-block:var(--gap)}
+.svc .stage{grid-column:1/6;position:sticky;top:calc(var(--bar) + 24px);height:calc(100svh - var(--bar) - 48px);align-self:start;background:var(--green);overflow:hidden}
+.svc .stage>figure{position:absolute;inset:0;opacity:0;transition:opacity .7s var(--ease)}
+.svc .stage>figure img{width:100%;height:100%;object-fit:cover;transform:scale(1.08);transition:transform 1.6s var(--ease)}
+.svc .stage>figure.on{opacity:1}.svc .stage>figure.on img{transform:none}
+.svc .stage figcaption{position:absolute;left:16px;bottom:14px;color:var(--on-dark)}
+.svc .list{grid-column:7/13}
+.svc article{min-height:70svh;display:flex;flex-direction:column;justify-content:center;padding-block:40px}
+.svc article h2{font-size:var(--t-h2);max-width:8em;transition:color .5s var(--ease)}
+.svc article:not(.now) h2{color:#7A746B}
+.svc article p{font-size:var(--t-statement);font-weight:500;letter-spacing:-.022em;line-height:1.24;margin-top:28px;max-width:22em}
+.svc article ul{display:flex;flex-wrap:wrap;gap:8px 28px;margin-top:28px;font-size:16px;font-weight:600}
+.svc article li{display:flex;align-items:center;gap:10px}
+.svc article li::before{content:"";width:8px;height:8px;background:var(--green)}
+@media (max-width:900px){
+  .svc{display:block;padding-block:72px}
+  .svc .stage{display:none}
+  .svc article{min-height:0;padding-block:0 128px}
+  .svc article:not(.now) h2{color:inherit}
+  .svc article h2{font-size:clamp(36px,10vw,56px)}
+  .svc article p{font-size:21px}
 }
+/* the brief: five answers start a search */
+.five{padding-block:var(--gap)}
+.five .head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:end}
+.five h2{grid-column:1/8;font-size:var(--t-display);letter-spacing:-.052em;line-height:.9}
+.five .head p{grid-column:9/13;font-size:18px}
+.five ol{margin-top:clamp(56px,6vw,96px)}
+.five li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:start;padding-block:22px}
+.five li+li{background:none}
+.five li b{grid-column:1/7;font-size:clamp(30px,3.6vw,60px);font-weight:600;letter-spacing:-.045em;line-height:1}
+.five li span{grid-column:8/12;font-size:18px;padding-top:.5em}
+.five .go{margin-top:56px}
+@media (max-width:900px){.five .head,.five li{display:block}.five h2{font-size:clamp(44px,13vw,84px)}.five .head p{margin-top:20px}.five li span{display:block;margin-top:8px;font-size:16px}.five li b{font-size:30px}.five .go .btn{width:100%}}
 </style>
 </head>
-<body>
+<body class="has-bar">
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="bar" id="bar">
   <div class="in wrap">
-    <a class="wordmark" href="index.html" aria-label="TalentSupplier, home">TalentSupplier</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <span class="clock tab" data-clock aria-hidden="true">Madrid</span>
     <nav class="nav" aria-label="Main">
-      <a href="about.html">About</a>
       <a href="services.html" aria-current="page">Services</a>
       <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
       <a href="journal.html">Insights</a>
       <a href="contact.html">Contact</a>
       <a class="btn" href="contact.html">Discuss a search</a>
@@ -57,105 +78,84 @@
 </header>
 <div class="sheet" id="sheet">
   <ul>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html" aria-current="page">Services</a></li>
-    <li><a href="industries.html">Industries</a></li>
-    <li><a href="journal.html">Insights</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html" style="--sw:var(--stone)">Services<i aria-hidden="true"></i></a></li>
+    <li><a href="industries.html" style="--sw:var(--mint)">Industries<i aria-hidden="true"></i></a></li>
+    <li><a href="about.html" style="--sw:var(--green)">About<i aria-hidden="true"></i></a></li>
+    <li><a href="journal.html" style="--sw:var(--deep)">Insights<i aria-hidden="true"></i></a></li>
+    <li><a href="contact.html" style="--sw:var(--paper)">Contact<i aria-hidden="true"></i></a></li>
   </ul>
-  <a class="btn" href="contact.html">Discuss a search</a>
+  <a class="btn btn--paper" href="contact.html">Discuss a search</a>
 </div>
 
 <main id="main">
-<section class="page-hero wrap" data-bar="cream">
-  <h1 class="sv"><span class="ln">From <span class="window" aria-hidden="true"><img src="assets/img/marble.jpg" width="1800" height="1200" alt=""></span>flagship floor</span><span class="ln">to executive committee.</span></h1>
-  <div class="s-lead"><p class="rv">TalentSupplier does not send CVs. We map the market, identify decision-grade talent, approach candidates discreetly, and help you hire with precision.</p></div>
+<section class="ph-hero wrap c-stone" data-c="stone">
+  <h1 style="--fit:9.2vw"><span class="ln">From the shop floor</span><span class="ln">to the boardroom.</span></h1>
+  <div class="low">
+    <p>We do not send CVs. We map the market and approach the people who fit, in confidence.</p>
+    <div class="ph lift"><img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated green curtain lit from behind a shop window"></div>
+    <p class="cap">Curtain, rendered for TalentSupplier</p>
+  </div>
 </section>
 
-<section class="svcs wrap" data-bar="cream" aria-label="Services">
+<section class="svc wrap c-paper" data-c="paper" aria-label="What we do">
   <div class="stage" aria-hidden="true">
-      <video class="on" autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video>
-      <img src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble floor" loading="lazy">
-      <img src="assets/img/facade.jpg" width="2100" height="1400" alt="A boulevard façade at dusk" loading="lazy">
-      <img src="assets/img/silk.jpg" width="1800" height="1200" alt="Folds of green satin" loading="lazy">
-      <img src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind" loading="lazy">
-      <img src="assets/img/herringbone.jpg" width="1800" height="1200" alt="Herringbone wool cloth" loading="lazy">
+    <figure class="on"><img src="assets/img/arcade.jpg" width="2400" height="1500" alt="" loading="lazy"><figcaption class="cap">Arcade</figcaption></figure>
+    <figure><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"><figcaption class="cap">Facade</figcaption></figure>
+    <figure><img src="assets/img/vitrine.jpg" width="1200" height="1440" alt="" loading="lazy"><figcaption class="cap">Vitrine</figcaption></figure>
+    <figure><img src="assets/img/silk.jpg" width="1800" height="1200" alt="" loading="lazy"><figcaption class="cap">Silk</figcaption></figure>
+    <figure><img src="assets/img/curtain.jpg" width="1200" height="1440" alt="" loading="lazy"><figcaption class="cap">Curtain</figcaption></figure>
+    <figure><img src="assets/img/marble.jpg" width="1800" height="1200" alt="" loading="lazy"><figcaption class="cap">Marble</figcaption></figure>
   </div>
   <div class="list">
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/arcade.jpg" width="2400" height="1500" alt="A glass-roofed shopping arcade" loading="lazy"></div>
-      <h2>Executive Search</h2>
-      <p>End-to-end search for senior leaders and high-impact specialists. Every mandate is researched, approached and assessed with care.</p>
-      <p class="mono scope">Leadership appointments · Specialist roles · International search</p>
-    </article>
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble floor" loading="lazy"></div>
-      <h2>Store Management Recruitment</h2>
-      <p>Targeted recruitment for Store Managers, Assistant Store Managers, Area Managers and other retail management roles.</p>
-      <p class="mono scope">Store Managers · Assistant Managers · Area Managers</p>
-    </article>
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/facade.jpg" width="2100" height="1400" alt="A boulevard façade at dusk" loading="lazy"></div>
-      <h2>Retail Leadership Hiring</h2>
-      <p>Executive and management-level search for retail businesses that need experienced commercial and operational leadership.</p>
-      <p class="mono scope">Retail directors · Regional leadership · Store operations</p>
-    </article>
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/silk.jpg" width="1800" height="1200" alt="Folds of green satin" loading="lazy"></div>
-      <h2>Luxury & Fashion Talent Mapping</h2>
-      <p>Focused market intelligence and candidate identification across luxury, fashion and lifestyle talent networks.</p>
-      <p class="mono scope">Luxury leadership · Fashion management · European mapping</p>
-    </article>
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/curtain.jpg" width="1200" height="1440" alt="A pleated curtain lit from behind" loading="lazy"></div>
-      <h2>Confidential Candidate Approach</h2>
-      <p>Direct, discreet outreach to carefully selected professionals, with candidate and client information handled confidentially.</p>
-      <p class="mono scope">Selected outreach · Confidentiality · Candidate care</p>
-    </article>
-    <article class="svc" data-swap>
-      <div class="m-pic veil"><img class="fill" src="assets/img/herringbone.jpg" width="1800" height="1200" alt="Herringbone wool cloth" loading="lazy"></div>
-      <h2>Success-Based Recruitment</h2>
-      <p>A focused recruitment model in which the professional fee is linked to a successful appointment.</p>
-      <p class="mono scope">Clear brief · Targeted search · Careful assessment</p>
-    </article>
+    <article id="executive" data-swap class="now"><h2>Executive search</h2><p>End-to-end search for senior leaders and high-impact specialists.</p><ul><li>Country and general managers</li><li>Executive committee</li><li>International search</li></ul></article>
+    <article id="retail" data-swap><h2>Retail leadership</h2><p>Leaders who can open, grow or fix a network of stores.</p><ul><li>Retail and expansion directors</li><li>Regional leadership</li><li>Store operations</li></ul></article>
+    <article id="store" data-swap><h2>Store management</h2><p>The people who run the floor, where the brand meets the customer.</p><ul><li>Store managers</li><li>Assistant managers</li><li>Area managers</li></ul></article>
+    <article id="mapping" data-swap><h2>Talent mapping</h2><p>Who leads, where, and how they could move, before you open a role.</p><ul><li>Luxury and fashion leadership</li><li>Competitor teams</li><li>European mapping</li></ul></article>
+    <article id="approach" data-swap><h2>Confidential approach</h2><p>Direct, discreet outreach, with every name protected throughout.</p><ul><li>Selected outreach</li><li>Confidential replacements</li><li>Candidate care</li></ul></article>
+    <article id="success" data-swap><h2>Success-based terms</h2><p>No retainer. The fee is due on appointment, with a replacement guarantee.</p><ul><li>No upfront fees</li><li>Fee on appointment</li><li>Replacement guarantee</li></ul></article>
   </div>
 </section>
 
-<section class="how wrap" data-bar="green" aria-labelledby="howTitle">
-  <div class="grid">
-    <h2 id="howTitle" class="h2 rv">A rigorous search. A personal approach.</h2>
-    <div class="txt">
-      <p class="rv" style="--i:1">Every mandate is tailored. The process stays disciplined, transparent and partner-led, from first conversation to appointment.</p>
-      <p class="rv" style="--i:2">We work on a success-based basis: the professional fee is linked to a successful appointment, not to volume of activity. <a href="index.html#who">See how we would search for your role</a>.</p>
+<section class="five wrap c-green" data-c="green" aria-labelledby="fiveTitle">
+  <div class="head">
+    <h2 id="fiveTitle" class="rv">Five answers start a search.</h2>
+    <p class="rv" style="--i:1">You do not need a job description to begin. Send us these, in a few lines each, and we will come back with how we would search.</p>
+  </div>
+  <ol>
+    <li class="rv"><b>The role</b><span>Title, scope and who it reports to.</span></li>
+    <li class="rv"><b>The markets</b><span>The countries or cities the person will cover.</span></li>
+    <li class="rv"><b>The team</b><span>How many people, how many doors, which numbers.</span></li>
+    <li class="rv"><b>The first year</b><span>What success looks like twelve months from now.</span></li>
+    <li class="rv"><b>The timing</b><span>When you need the person in the role.</span></li>
+  </ol>
+  <p class="go rv"><a class="btn btn--paper" href="mailto:info@talentsupplier.eu?subject=Search%20brief&body=The%20role%3A%20%0AThe%20markets%3A%20%0AThe%20team%3A%20%0AThe%20first%20year%3A%20%0AThe%20timing%3A%20%0A">Send the five answers <span class="ar" aria-hidden="true">→</span></a></p>
+</section>
+
+<section class="act-row" data-c="paper" aria-labelledby="closeTitle">
+  <div class="fl ph"><video autoplay muted loop playsinline preload="none" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-hidden="true"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video></div>
+  <div class="mid c-green">
+    <h2 id="closeTitle" class="rv">Your next leader is not looking.</h2>
+    <div class="row">
+      <p class="rv" style="--i:1">Tell us the role, the challenge and the kind of person who would change the outcome. We will tell you how we would find them.</p>
+      <a class="btn btn--paper rv" style="--i:2" href="contact.html">Discuss a search <span class="ar" aria-hidden="true">→</span></a>
     </div>
   </div>
-</section>
-
-<section class="close sm wrap" data-bar="ink" aria-labelledby="closeTitle">
-  <h2 id="closeTitle" class="rv">Let’s discuss your next hire.</h2>
-  <div class="foot">
-    <p class="rv" style="--i:1">Tell us the role, the challenge and the kind of person who would change the outcome. We will tell you how we would find them.</p>
-    <a class="btn rv" style="--i:2" href="contact.html">Discuss a search</a>
-  </div>
+  <div class="fr ph"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"></div>
 </section>
 </main>
 
-<footer class="foot-site wrap" data-bar="green">
+<footer class="foot wrap c-ink" data-c="ink">
   <div class="top">
-    <div class="notes">
-      <div><strong>TalentSupplier</strong>Executive search boutique for retail, fashion and luxury.</div>
-      <div>A confidential, success-based search partner, for both client and candidate.</div>
-      <div>Based in Madrid. Searching across markets.</div>
-    </div>
-    <a href="#main" class="mono">Back to top ↑</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <p class="n1">Executive search boutique for retail, fashion, luxury and lifestyle. Partner-led, confidential, success-based.</p>
+    <p class="n2">Based in Madrid. Searching across Europe and the Americas. <span class="tab soft" data-clock></span></p>
+    <a class="up" href="#main">Back to top ↑</a>
   </div>
   <a class="mail" href="mailto:info@talentsupplier.eu">info<br>@talentsupplier.eu</a>
   <div class="meta">
-    <nav aria-label="Footer">
-      <a href="about.html">About</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a>
-    </nav>
-    <span class="mono">Imagery: original renders</span>
-    <span class="r mono">© 2026 TalentSupplier · Madrid</span>
+    <nav aria-label="Footer"><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="about.html">About</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a></nav>
+    <span>Every image on this site is rendered for TalentSupplier.</span>
+    <span class="r">© 2026 TalentSupplier · Madrid</span>
   </div>
 </footer>
 <script src="assets/site.js" defer></script>

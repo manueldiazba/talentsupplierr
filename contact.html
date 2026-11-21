@@ -3,55 +3,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Contact — TalentSupplier | Executive Search Boutique</title>
-<meta name="description" content="A confidential conversation starts here. Tell us about the role, market or leadership need you are considering.">
+<title>Contact | TalentSupplier</title>
+<meta name="description" content="Start a confidential conversation about a leadership search. Every enquiry is handled in confidence and answered personally.">
+<meta name="theme-color" content="#0F5C4D">
+<link rel="canonical" href="https://talentsupplier.eu/contact.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TalentSupplier">
+<meta property="og:title" content="Contact | TalentSupplier">
+<meta property="og:description" content="Start a confidential conversation about a leadership search. Every enquiry is handled in confidence and answered personally.">
+<meta property="og:image" content="https://talentsupplier.eu/assets/brand/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
+
 <style>
-.c-hero{background:var(--green);color:var(--on-dark);padding-block:clamp(56px,12vh,160px) var(--gap)}
-.c-hero h1 .window{background:var(--ink)}
-.page-hero h1.ct{font-size:clamp(26px,6.3vw,120px)}
-.c-hero .lead{margin-top:40px;max-width:46ch}
-.composer{margin-top:clamp(64px,8vw,120px);background:var(--bg);color:var(--ink);padding:clamp(24px,3.4vw,56px)}
-.composer legend{padding:0;font-weight:600;margin-bottom:20px}
-.composer fieldset{border:0;margin:0;padding:0}
-.composer .sentence{font-size:var(--t-statement);font-weight:500;line-height:1.6;letter-spacing:-.02em}
-.composer select{field-sizing:content;font:inherit;color:var(--green);background:var(--step);border:0;border-radius:0;padding:.02em .3em;margin:0;cursor:pointer;max-width:100%;appearance:none;-webkit-appearance:none;transition:background-color .25s var(--ease)}
-.composer select:hover{background:#E2DDD4}
-.composer .row{display:flex;flex-wrap:wrap;gap:16px 28px;align-items:center;margin-top:32px}
-.composer .row .mono{color:var(--soft)}
-.composer output{display:block;margin-top:24px;color:var(--soft)}
-.stds{padding-block:var(--gap)}
-.stds ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px)}
-.stds li strong{display:block;font-size:var(--t-h2);font-weight:600;letter-spacing:-.04em;line-height:1}
-.stds li p{margin-top:20px;max-width:30ch}
-.stds li:nth-child(2){margin-top:clamp(40px,6vw,100px)}
-.stds li:nth-child(3){margin-top:clamp(80px,12vw,200px)}
-.c-pic{height:clamp(320px,64vh,720px);overflow:hidden;background:var(--green)}
-.only{padding-block:var(--gap)}
-.only .grid{align-items:end}
-.only h2{grid-column:1/7}
-.only p{grid-column:8/13;max-width:44ch}
-@media (max-width:860px){
-  .stds ul{grid-template-columns:1fr;row-gap:48px}
-  .stds li:nth-child(n){margin-top:0}
-  .only h2,.only p{grid-column:1/-1}
-  .only p{margin-top:24px}
-  .composer .row .btn{width:100%}
-}
+.ct{min-height:calc(100svh - var(--bar));display:flex;flex-direction:column;justify-content:space-between;padding-block:clamp(40px,8vh,96px) var(--m)}
+.ct h1{font-size:var(--t-display);letter-spacing:-.05em;line-height:.9}
+.ct h1 .ln{display:block}
+.ct .chap{display:flex;gap:10px;align-items:center;font-size:15px;font-weight:600;margin-bottom:clamp(28px,6vh,64px)}
+.ct .chap i{width:12px;height:12px;background:currentColor}
+.ct .hd{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);align-items:start}.ct .hd h1{grid-column:1/10}.ct .hd figure{grid-column:11/13;aspect-ratio:4/5}@media (max-width:900px){.ct .hd{display:block}.ct .hd figure{display:none}}
+#composer{margin-top:clamp(48px,8vh,96px)}
+#composer legend{font-size:15px;font-weight:600;color:var(--on-dark-soft);margin-bottom:18px;padding:0}
+#composer fieldset{border:0;margin:0;padding:0}
+.sentence{font-size:clamp(28px,3.6vw,60px);font-weight:500;letter-spacing:-.035em;line-height:1.32;max-width:22em}
+.sentence select{field-sizing:content;appearance:none;-webkit-appearance:none;background:var(--green);color:var(--on-dark);border:0;border-radius:0;font:inherit;letter-spacing:inherit;line-height:1.1;padding:.02em .32em .08em;margin:.06em 0;cursor:pointer;transition:background-color .3s var(--ease)}
+.sentence select:hover,.sentence select:focus-visible{background:var(--paper);color:var(--ink);outline:none}
+.sentence select option{background:var(--paper);color:var(--ink)}
+.ct .go{display:flex;flex-wrap:wrap;align-items:center;gap:16px 28px;margin-top:40px}
+.ct .go span{font-size:16px;color:var(--on-dark-soft)}
+.ct .go .btn{min-height:58px;padding:0 32px}
+.promise{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gutter);padding-block:var(--gap)}
+.promise h2{font-size:var(--t-h2);grid-column:1/-1;margin-bottom:clamp(48px,6vw,88px);max-width:9em}
+.promise dt{font-size:var(--t-statement);font-weight:600;letter-spacing:-.03em;display:flex;gap:12px;align-items:baseline}
+.promise dt::before{content:"";flex:none;width:.34em;height:.34em;background:var(--green)}
+.promise dd{margin-top:12px;font-size:18px;max-width:32ch}
+.promise .pv{grid-column:1/-1;aspect-ratio:21/9;margin-bottom:clamp(64px,7vw,112px)}.promise .pair2{grid-column:1/-1;display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-top:clamp(56px,6vw,96px)}.promise .pair2 .ph{aspect-ratio:auto;height:44svh}@media (max-width:900px){.promise .pv{aspect-ratio:4/3;margin-bottom:56px}.promise .pair2{grid-template-columns:1fr 1fr;margin-top:48px}.promise .pair2 .ph{height:auto;aspect-ratio:1}}
+.promise .f{grid-column:1/-1;margin-top:clamp(56px,6vw,96px);font-size:18px;max-width:60ch}
+@media (max-width:900px){.ct{min-height:auto;padding-block:40px}.ct h1{font-size:clamp(40px,12vw,80px)}.sentence{font-size:26px}.ct .go .btn{width:100%}.promise{display:block;padding-block:80px}.promise dl>div+div{margin-top:28px}.promise h2{font-size:clamp(40px,11vw,64px)}}
+.promise dl{grid-column:1/-1;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--gutter)}
+@media (max-width:900px){.promise dl{display:block}}
 </style>
 </head>
-<body>
+<body class="has-bar">
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="bar" id="bar">
   <div class="in wrap">
-    <a class="wordmark" href="index.html" aria-label="TalentSupplier, home">TalentSupplier</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <span class="clock tab" data-clock aria-hidden="true">Madrid</span>
     <nav class="nav" aria-label="Main">
-      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="industries.html">Industries</a>
+      <a href="about.html">About</a>
       <a href="journal.html">Insights</a>
       <a href="contact.html" aria-current="page">Contact</a>
       <a class="btn" href="contact.html">Discuss a search</a>
@@ -61,76 +69,88 @@
 </header>
 <div class="sheet" id="sheet">
   <ul>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="industries.html">Industries</a></li>
-    <li><a href="journal.html">Insights</a></li>
-    <li><a href="contact.html" aria-current="page">Contact</a></li>
+    <li><a href="services.html" style="--sw:var(--stone)">Services<i aria-hidden="true"></i></a></li>
+    <li><a href="industries.html" style="--sw:var(--mint)">Industries<i aria-hidden="true"></i></a></li>
+    <li><a href="about.html" style="--sw:var(--green)">About<i aria-hidden="true"></i></a></li>
+    <li><a href="journal.html" style="--sw:var(--deep)">Insights<i aria-hidden="true"></i></a></li>
+    <li><a href="contact.html" style="--sw:var(--paper)">Contact<i aria-hidden="true"></i></a></li>
   </ul>
-  <a class="btn" href="contact.html">Discuss a search</a>
+  <a class="btn btn--paper" href="contact.html">Discuss a search</a>
 </div>
 
 <main id="main">
-<section class="c-hero page-hero wrap on-dark" data-bar="green">
-  <h1 class="ct"><span class="ln">A <span class="window" aria-hidden="true"><img src="assets/img/curtain.jpg" width="1200" height="1440" alt=""></span>confidential</span><span class="ln">conversation starts here.</span></h1>
-  <p class="lead rv">Tell us about the role, market or leadership need you are considering. Every enquiry is handled confidentially.</p>
-  <form class="composer rv" id="composer" style="--i:1" action="mailto:info@talentsupplier.eu" method="get">
+<section class="ct wrap c-ink" data-c="ink">
+  <div class="hd">
+    <h1><span class="ln">A confidential</span><span class="ln">conversation.</span></h1>
+    <figure class="ph lift"><img src="assets/img/vitrine.jpg" width="1200" height="1440" alt="Green curtains lit behind the panes of a shop vitrine"></figure>
+  </div>
+  <form id="composer" action="mailto:info@talentsupplier.eu" method="get">
     <fieldset>
       <legend class="sr">Start your brief in one sentence</legend>
       <p class="sentence">We are looking for
         <select name="level" aria-label="Role">
-          <option>a Store Manager</option><option>an Area Manager</option><option>a Retail Director</option><option>a Country Manager</option><option>an HR &amp; People Director</option><option>a Managing Director</option><option>a CEO</option><option>a specialist role</option>
+          <option value="a Store Manager">a Store Manager</option>
+          <option value="an Area Manager">an Area Manager</option>
+          <option value="a Retail Director" selected>a Retail Director</option>
+          <option value="a Country Manager">a Country Manager</option>
+          <option value="an HR &amp; People Director">an HR &amp; People Director</option>
+          <option value="a Managing Director">a Managing Director</option>
+          <option value="a CEO">a CEO</option>
+          <option value="a specialist role">a specialist role</option>
         </select>
         in
         <select name="market" aria-label="Market">
-          <option>Spain</option><option>Portugal</option><option>France</option><option>Italy</option><option>Germany, Austria and Switzerland</option><option>the Benelux</option><option>the United Kingdom</option><option>several markets</option>
+          <option value="Spain" selected>Spain</option>
+          <option value="Portugal">Portugal</option>
+          <option value="France">France</option>
+          <option value="Italy">Italy</option>
+          <option value="Germany, Austria and Switzerland">Germany, Austria and Switzerland</option>
+          <option value="the Benelux">the Benelux</option>
+          <option value="the United Kingdom">the United Kingdom</option>
+          <option value="the Americas">the Americas</option>
+          <option value="several markets">several markets</option>
         </select>,
         <select name="timing" aria-label="Timing">
-          <option>within three months</option><option>this year</option><option>with no fixed date</option>
+          <option value="within three months" selected>within three months</option>
+          <option value="this year">this year</option>
+          <option value="with no fixed date">with no fixed date</option>
         </select>.
       </p>
     </fieldset>
-    <div class="row">
-      <a class="btn" id="composeMail" href="mailto:info@talentsupplier.eu">Email this brief</a>
-      <span class="mono">or write to info@talentsupplier.eu</span>
+    <div class="go">
+      <a class="btn btn--paper" id="composeMail" href="mailto:info@talentsupplier.eu">Email this brief <span class="ar" aria-hidden="true">→</span></a>
+      <span>Change the words, then email it. Or write to <a class="link" href="mailto:info@talentsupplier.eu">info@talentsupplier.eu</a></span>
     </div>
+    <p class="sr" id="composeLine" aria-live="polite"></p>
   </form>
 </section>
 
-<section class="stds wrap" data-bar="cream" aria-label="What to expect from every enquiry">
-  <ul>
-    <li class="rv"><strong>Confidential.</strong><p>Every enquiry, and every name in it, stays between us.</p></li>
-    <li class="rv" style="--i:1"><strong>Personal.</strong><p>We respond personally. You speak with the person who runs the search.</p></li>
-    <li class="rv" style="--i:2"><strong>Tailored.</strong><p>Every search is shaped around the role, the market and the leadership context.</p></li>
-  </ul>
+<section class="promise wrap c-paper" data-c="paper" aria-labelledby="promTitle">
+  <div class="ph pv lift"><video autoplay muted loop playsinline preload="metadata" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-hidden="true"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video></div>
+  <h2 id="promTitle" class="rv">What happens next.</h2>
+  <dl>
+    <div class="rv"><dt>Confidential</dt><dd>Every enquiry, and every name in it, stays between us.</dd></div>
+    <div class="rv" style="--i:1"><dt>Personal</dt><dd>You hear back from the person who would run the search, not from an inbox.</dd></div>
+    <div class="rv" style="--i:2"><dt>Tailored</dt><dd>We come back with how we would search for your role, in your markets.</dd></div>
+  </dl>
+  <div class="pair2"><figure class="ph lift"><img src="assets/img/herringbone.jpg" width="1800" height="1200" alt="Herringbone wool cloth in green, close up" loading="lazy"></figure><figure class="ph lift"><img src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble with green lines" loading="lazy"></figure></div>
+  <p class="f rv">Enquiries are by email only. We do not take open applications through this site. If you are a senior professional open to a confidential conversation, write to us with a line about what you lead today.</p>
 </section>
 
-<div class="c-pic" data-bar="ink"><video class="fill" autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video></div>
-
-<section class="only wrap" data-bar="cream" aria-labelledby="onlyTitle">
-  <div class="grid">
-    <h2 id="onlyTitle" class="h2 rv">By email only.</h2>
-    <p class="rv" style="--i:1">Enquiries are confidential and by email: <a href="mailto:info@talentsupplier.eu">info@talentsupplier.eu</a>. We do not take open applications through this site.</p>
-  </div>
-</section>
 </main>
 
-<footer class="foot-site wrap" data-bar="green">
+<footer class="foot wrap c-ink" data-c="ink">
   <div class="top">
-    <div class="notes">
-      <div><strong>TalentSupplier</strong>Executive search boutique for retail, fashion and luxury.</div>
-      <div>A confidential, success-based search partner, for both client and candidate.</div>
-      <div>Based in Madrid. Searching across markets.</div>
-    </div>
-    <a href="#main" class="mono">Back to top ↑</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <p class="n1">Executive search boutique for retail, fashion, luxury and lifestyle. Partner-led, confidential, success-based.</p>
+    <p class="n2">Based in Madrid. Searching across Europe and the Americas. <span class="tab soft" data-clock></span></p>
+    <a class="up" href="#main">Back to top ↑</a>
   </div>
   <a class="mail" href="mailto:info@talentsupplier.eu">info<br>@talentsupplier.eu</a>
   <div class="meta">
-    <nav aria-label="Footer">
-      <a href="about.html">About</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a>
-    </nav>
-    <span class="mono">Imagery: original renders</span>
-    <span class="r mono">© 2026 TalentSupplier · Madrid</span>
+    <nav aria-label="Footer"><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="about.html">About</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a></nav>
+    <span>Every image on this site is rendered for TalentSupplier.</span>
+    <span class="r">© 2026 TalentSupplier · Madrid</span>
   </div>
 </footer>
 <script src="assets/site.js" defer></script>

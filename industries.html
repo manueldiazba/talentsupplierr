@@ -3,55 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Industries — TalentSupplier | Executive Search Boutique</title>
-<meta name="description" content="Retail and luxury are our deepest expertise. We bring the same disciplined search to fashion, beauty, hospitality, consumer goods and specialist sectors.">
+<title>Industries | TalentSupplier</title>
+<meta name="description" content="Executive search with deep expertise in retail, fashion, luxury and lifestyle, and the same discipline across beauty, hospitality, consumer goods and specialist sectors.">
+<meta name="theme-color" content="#0F5C4D">
+<link rel="canonical" href="https://talentsupplier.eu/industries.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TalentSupplier">
+<meta property="og:title" content="Industries | TalentSupplier">
+<meta property="og:description" content="Executive search with deep expertise in retail, fashion, luxury and lifestyle, and the same discipline across beauty, hospitality, consumer goods and specialist sectors.">
+<meta property="og:image" content="https://talentsupplier.eu/assets/brand/og.png">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="assets/brand/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/brand/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="assets/brand/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/manrope-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/site.css">
 <script>document.documentElement.classList.add('js')</script>
+
 <style>
-.i-hero{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px);min-height:calc(100svh - 72px)}
-.i-hero .txt{grid-column:1/9;display:flex;flex-direction:column;justify-content:space-between;padding-block:clamp(56px,14vh,180px) 40px}
-.i-hero h1{font-size:clamp(31px,4.9vw,96px)}
-.i-hero .txt p{max-width:46ch;margin-top:48px}
-.i-hero figure{grid-column:9/13;margin:0 calc(var(--m)*-1) 0 0;background:var(--green);overflow:hidden;position:relative}
-.core{padding-block:var(--gap)}
-.core .pair{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:clamp(12px,1.6vw,28px)}
-.core .one{grid-column:span 6}
-.core .one h2{font-size:clamp(64px,11.5vw,210px);letter-spacing:-.055em;line-height:.9}
-.core .one .ph{aspect-ratio:3/2;overflow:hidden;background:var(--green);margin-top:28px;width:72%}
-.core .one p{margin-top:20px;max-width:34ch}
-.core .one p strong{font-weight:600;color:var(--green)}
-.core .one:nth-child(2){margin-top:clamp(80px,12vw,200px)}
-.adj{background:var(--step);padding-block:var(--gap)}
-.adj .statement{margin-top:40px;max-width:30em}
-.why{background:var(--ink);color:var(--on-dark);padding-block:var(--gap)}
-.why .grid{align-items:center}
-.why h2{grid-column:1/7}
-.why .statement{grid-column:1/7;margin-top:32px}
-.why figure{grid-column:8/13;margin:0}
-.why figure .ph{aspect-ratio:4/5;overflow:hidden;background:var(--green)}
-@media (max-width:860px){
-  .i-hero{min-height:0}
-  .i-hero .txt,.i-hero figure{grid-column:1/-1}
-  .i-hero figure{margin:0 calc(var(--m)*-1);aspect-ratio:3/2}
-  .core .one{grid-column:1/-1}
-  .core .one:nth-child(2){margin-top:72px}
-  .core .one .ph{width:100%}
-  .why h2,.why .statement,.why figure{grid-column:1/-1}
-  .why figure{margin-top:40px;width:70%;justify-self:end}
-}
+/* two core sectors, two fields */
+.pair{display:grid;grid-template-columns:1fr 1fr}
+.pair .p{position:relative;min-height:96svh;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;gap:28px;padding:28px var(--m) 30px}
+.pair .p .ph{position:absolute;left:18%;right:-16%;top:-10%;height:60%;background:transparent}
+.pair .p .ph img{width:100%;height:100%;object-fit:cover}
+.pair .p h2{position:relative;font-size:var(--t-h2);max-width:6em}
+.pair .p .row{position:relative;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.pair .p .row p{font-size:18px;max-width:34ch}
+.pair .p .row b{display:block;font-size:var(--t-statement);font-weight:600;letter-spacing:-.03em;margin-bottom:8px}
+.pair .p .row span{font-size:16px;font-weight:600;text-align:right}
+@media (max-width:900px){.pair{display:block}.pair .p{min-height:86svh;padding:88px var(--m) 24px}.pair .p .ph{left:20%;right:-30%;height:52%}.pair .p h2{font-size:clamp(40px,11vw,64px)}.pair .p .row{display:block}.pair .p .row span{display:block;text-align:left;margin-top:14px}}
+/* fluent */
+.fluent{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gutter);padding-block:var(--gap);align-items:center}
+.fluent figure{grid-column:1/6}.fluent .ph{aspect-ratio:4/5}
+.fluent .t{grid-column:7/13}
+.fluent h2{font-size:var(--t-h2)}
+.fluent p{font-size:var(--t-statement);font-weight:500;letter-spacing:-.022em;line-height:1.24;margin-top:32px;max-width:20em}
+.fluent .cap{margin-top:10px}
+@media (max-width:900px){.fluent{display:flex;flex-direction:column-reverse;padding-block:80px}.fluent figure{margin-top:40px}.fluent .t{margin-top:40px}.fluent h2{font-size:clamp(40px,11vw,64px)}.fluent p{font-size:21px}}
+.adj-head{padding-top:clamp(72px,8vw,120px)}
+.adj-head h2{font-size:var(--t-h2);max-width:9em}
+.adj-head p{font-size:18px;max-width:46ch;margin-top:24px}
 </style>
 </head>
-<body>
+<body class="has-bar">
 <a class="skip" href="#main">Skip to content</a>
-
 <header class="bar" id="bar">
   <div class="in wrap">
-    <a class="wordmark" href="index.html" aria-label="TalentSupplier, home">TalentSupplier</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <span class="clock tab" data-clock aria-hidden="true">Madrid</span>
     <nav class="nav" aria-label="Main">
-      <a href="about.html">About</a>
       <a href="services.html">Services</a>
       <a href="industries.html" aria-current="page">Industries</a>
+      <a href="about.html">About</a>
       <a href="journal.html">Insights</a>
       <a href="contact.html">Contact</a>
       <a class="btn" href="contact.html">Discuss a search</a>
@@ -61,79 +65,86 @@
 </header>
 <div class="sheet" id="sheet">
   <ul>
-    <li><a href="about.html">About</a></li>
-    <li><a href="services.html">Services</a></li>
-    <li><a href="industries.html" aria-current="page">Industries</a></li>
-    <li><a href="journal.html">Insights</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="services.html" style="--sw:var(--stone)">Services<i aria-hidden="true"></i></a></li>
+    <li><a href="industries.html" style="--sw:var(--mint)">Industries<i aria-hidden="true"></i></a></li>
+    <li><a href="about.html" style="--sw:var(--green)">About<i aria-hidden="true"></i></a></li>
+    <li><a href="journal.html" style="--sw:var(--deep)">Insights<i aria-hidden="true"></i></a></li>
+    <li><a href="contact.html" style="--sw:var(--paper)">Contact<i aria-hidden="true"></i></a></li>
   </ul>
-  <a class="btn" href="contact.html">Discuss a search</a>
+  <a class="btn btn--paper" href="contact.html">Discuss a search</a>
 </div>
 
 <main id="main">
-<section class="i-hero wrap" data-bar="cream">
-  <div class="txt page-hero" style="padding-inline:0">
-    <h1><span class="ln">Sector depth.</span><span class="ln">Broader perspective.</span></h1>
-    <p class="rv">Retail and luxury remain our deepest areas of expertise. We bring the same disciplined, relationship-led search to ambitious organisations across adjacent consumer and specialist sectors.</p>
+<section class="ph-hero wrap c-mint" data-c="mint">
+  <h1><span class="ln">Sector depth.</span><span class="ln">Broader view.</span></h1>
+  <div class="low">
+    <p>Deepest in retail, fashion and luxury. The same discipline travels well into neighbouring sectors.</p>
+    <div class="ph lift"><img src="assets/img/silk.jpg" width="1800" height="1200" alt="Folds of green satin catching the light"></div>
+    <p class="cap">Silk, rendered for TalentSupplier</p>
   </div>
-  <figure aria-hidden="true"><img class="fill" src="assets/img/facade.jpg" width="2100" height="1400" alt=""></figure>
 </section>
 
-<section class="core wrap" data-bar="cream" aria-label="Core expertise">
-  <div class="pair">
-    <div class="one rv">
-      <h2>Retail</h2>
-      <div class="ph veil"><video class="fill" autoplay muted loop playsinline preload="metadata" poster="assets/img/arcade-loop-poster.jpg" width="1280" height="800" aria-label="Moving slowly through a glass-roofed shopping arcade, shop windows lit on both sides"><source src="assets/video/arcade-loop.mp4" type="video/mp4"></video></div>
-      <p><strong>Core expertise.</strong> Store, area and regional leadership at flagship standard.</p>
+<section class="pair" data-c="stone" aria-label="Core expertise">
+  <div class="p c-stone">
+    <div class="ph lift"><img src="assets/img/arcade.jpg" width="2400" height="1500" alt="A glass-roofed shopping arcade, shop windows on both sides" loading="lazy"></div>
+    <h2 class="rv">Retail and lifestyle</h2>
+    <div class="row rv"><p><b>Core expertise</b>Store, area and regional leadership at flagship standard, for brands that live on their floor.</p><span>Skechers, Mountain Warehouse, VFL</span></div>
+  </div>
+  <div class="p c-green">
+    <div class="ph lift"><img src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble with green lines" loading="lazy"></div>
+    <h2 class="rv">Fashion and luxury</h2>
+    <div class="row rv"><p><b>Core expertise</b>Leadership for houses where reputation is the product and every appointment is seen.</p><span>Patrizia Pepe</span></div>
+  </div>
+</section>
+
+<section class="c-ink" data-c="ink" aria-labelledby="adjTitle">
+  <div class="adj-head wrap">
+    <h2 id="adjTitle" class="rv">Same discipline, wider reach.</h2>
+    <p class="rv" style="--i:1">Ambitious organisations in adjacent sectors hire with us for the same reason, professional services included: they need leaders who understand customers, brands and teams.</p>
+  </div>
+  <ul class="poster wrap">
+    <li class="rv"><div><span class="w">beauty</span><span class="d">Adjacent</span></div></li>
+    <li class="rv" style="--i:1"><div><span class="w">hospitality</span><span class="d">Adjacent</span></div></li>
+    <li class="rv" style="--i:2"><div><span class="w">consumer goods</span><span class="d">Adjacent</span></div></li>
+    <li class="rv" style="--i:3"><div><span class="w">technology</span><span class="d">Specialist</span></div></li>
+    <li class="rv" style="--i:4"><div><span class="w">healthcare</span><span class="d">Specialist</span></div></li>
+    <li class="rv" style="--i:5"><div><span class="w">industrial</span><span class="d">Specialist</span></div></li>
+  </ul>
+</section>
+
+<section class="fluent wrap c-paper" data-c="paper" aria-labelledby="fluentTitle">
+  <figure class="rv"><div class="ph lift"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="A boulevard facade at dusk, some windows lit" loading="lazy"></div><figcaption class="cap">Facade, rendered for TalentSupplier</figcaption></figure>
+  <div class="t">
+    <h2 id="fluentTitle" class="rv">Fluent in the sector.</h2>
+    <p class="rv" style="--i:1">Commercial sense, brand understanding and the judgement to find people who can represent a brand.</p>
+  </div>
+</section>
+
+<section class="act-row" data-c="paper" aria-labelledby="closeTitle">
+  <div class="fl ph"><video autoplay muted loop playsinline preload="none" poster="assets/img/silk-loop-poster.jpg" width="1280" height="800" aria-hidden="true"><source src="assets/video/silk-loop.mp4" type="video/mp4"></video></div>
+  <div class="mid c-green">
+    <h2 id="closeTitle" class="rv">Your next leader is not looking.</h2>
+    <div class="row">
+      <p class="rv" style="--i:1">Tell us the role, the challenge and the kind of person who would change the outcome. We will tell you how we would find them.</p>
+      <a class="btn btn--paper rv" style="--i:2" href="contact.html">Discuss a search <span class="ar" aria-hidden="true">→</span></a>
     </div>
-    <div class="one rv" style="--i:1">
-      <h2>Luxury</h2>
-      <div class="ph veil"><img class="fill" src="assets/img/marble.jpg" width="1800" height="1200" alt="Pale veined marble" loading="lazy"></div>
-      <p><strong>Core expertise.</strong> Leadership for brands where reputation is the product.</p>
-    </div>
   </div>
-</section>
-
-<section class="adj wrap" data-bar="step" aria-labelledby="adjTitle">
-  <h2 id="adjTitle" class="h2 rv">Same discipline. Wider reach.</h2>
-  <p class="statement lit-list rv" style="--i:1">Search experience across <span class="n">Fashion</span>, <span class="n">Beauty</span>, <span class="n">Hospitality</span>, <span class="n">FMCG</span>, <span class="n">Consumer Goods</span>, <span class="n">Technology</span>, <span class="n">Healthcare</span>, <span class="n">Industrial</span> and <span class="n">Professional Services</span>.</p>
-</section>
-
-<section class="why wrap on-dark" data-bar="ink" aria-labelledby="whyTitle">
-  <div class="grid">
-    <div style="grid-column:1/7">
-      <h2 id="whyTitle" class="h2 rv">Fluent in the sector.</h2>
-      <p class="statement rv" style="--i:1;margin-top:32px">Not just recruitment: commercial sense, brand understanding and the judgement to find people who can represent a brand.</p>
-    </div>
-    <figure class="rv" style="--i:2"><div class="ph veil"><img class="fill" src="assets/img/silk.jpg" width="1800" height="1200" alt="Folds of green satin catching the light" loading="lazy"></div><figcaption class="mono caption">Silk — rendered for TalentSupplier</figcaption></figure>
-  </div>
-</section>
-
-<section class="close sm wrap" data-bar="ink" aria-labelledby="closeTitle">
-  <h2 id="closeTitle" class="rv">Let’s discuss your next hire.</h2>
-  <div class="foot">
-    <p class="rv" style="--i:1">Tell us the role, the challenge and the kind of person who would change the outcome. We will tell you how we would find them.</p>
-    <a class="btn rv" style="--i:2" href="contact.html">Discuss a search</a>
-  </div>
+  <div class="fr ph"><img src="assets/img/facade.jpg" width="2100" height="1400" alt="" loading="lazy"></div>
 </section>
 </main>
 
-<footer class="foot-site wrap" data-bar="green">
+<footer class="foot wrap c-ink" data-c="ink">
   <div class="top">
-    <div class="notes">
-      <div><strong>TalentSupplier</strong>Executive search boutique for retail, fashion and luxury.</div>
-      <div>A confidential, success-based search partner, for both client and candidate.</div>
-      <div>Based in Madrid. Searching across markets.</div>
-    </div>
-    <a href="#main" class="mono">Back to top ↑</a>
+    <a class="wm" href="index.html" aria-label="TalentSupplier, home">TalentSupplier<i aria-hidden="true"></i></a>
+    <p class="n1">Executive search boutique for retail, fashion, luxury and lifestyle. Partner-led, confidential, success-based.</p>
+    <p class="n2">Based in Madrid. Searching across Europe and the Americas. <span class="tab soft" data-clock></span></p>
+    <a class="up" href="#main">Back to top ↑</a>
   </div>
   <a class="mail" href="mailto:info@talentsupplier.eu">info<br>@talentsupplier.eu</a>
   <div class="meta">
-    <nav aria-label="Footer">
-      <a href="about.html">About</a><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a>
-    </nav>
-    <span class="mono">Imagery: original renders</span>
-    <span class="r mono">© 2026 TalentSupplier · Madrid</span>
+    <nav aria-label="Footer"><a href="services.html">Services</a><a href="industries.html">Industries</a><a href="about.html">About</a><a href="journal.html">Insights</a><a href="contact.html">Contact</a><a href="privacy-policy.html">Privacy</a><a href="legal-notice.html">Legal notice</a></nav>
+    <span>Every image on this site is rendered for TalentSupplier.</span>
+    <span class="r">© 2026 TalentSupplier · Madrid</span>
   </div>
 </footer>
 <script src="assets/site.js" defer></script>
